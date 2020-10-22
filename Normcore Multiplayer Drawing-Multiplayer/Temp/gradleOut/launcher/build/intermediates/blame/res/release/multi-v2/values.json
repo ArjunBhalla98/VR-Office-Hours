@@ -1,0 +1,79 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/project/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/project/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,101",
+                        "endColumns": "47,65",
+                        "endOffsets": "98,164"
+                    },
+                    "to": {
+                        "startLines": "3,4",
+                        "startColumns": "4,4",
+                        "startOffsets": "101,151",
+                        "endColumns": "49,67",
+                        "endOffsets": "146,214"
+                    }
+                },
+                {
+                    "source": "/Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/project/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values/ids.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "46",
+                        "endOffsets": "97"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "45",
+                        "endOffsets": "96"
+                    }
+                },
+                {
+                    "source": "/Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/project/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "5,2,7",
+                        "startColumns": "0,0,0",
+                        "startOffsets": "190,53,288",
+                        "endLines": "6,4,10",
+                        "endColumns": "8,8,8",
+                        "endOffsets": "286,188,513"
+                    },
+                    "to": {
+                        "startLines": "6,8,11",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "263,363,501",
+                        "endLines": "7,10,14",
+                        "endColumns": "8,8,8",
+                        "endOffsets": "358,496,723"
+                    }
+                },
+                {
+                    "source": "/Users/williamzhang/.gradle/caches/transforms-2/files-2.1/6deb908ba17599169b4dece1aa36ae73/res/values/values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "2",
+                        "startOffsets": "53",
+                        "endColumns": "41",
+                        "endOffsets": "92"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "219",
+                        "endColumns": "43",
+                        "endOffsets": "258"
+                    }
+                }
+            ]
+        }
+    ]
+}
