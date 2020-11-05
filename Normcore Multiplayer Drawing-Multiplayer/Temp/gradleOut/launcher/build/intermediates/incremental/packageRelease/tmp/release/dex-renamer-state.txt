@@ -1,4 +1,0 @@
-#Wed Nov 04 14:21:23 SGT 2020
-base.0=/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/release/0
-path.0=classes.dex
-renamed.0=classes.dex
