@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - BrushStrokeMesh
     - CharacterCameraConstraint
     - CharacterCapsule
+    - GrabRequest
     - LocomotionController
     - LocomotionTeleport
     - Normal.Realtime.Examples.CubePlayer
@@ -14,6 +15,7 @@ ScriptsOnlyBuild:
     - OculusSampleFramework.DistanceGrabbable
     - OculusSampleFramework.DistanceGrabber
     - OculusSampleFramework.GrabManager
+    - Pen
     - SimpleCapsuleWithStickMovement
     - TeleportAimHandlerLaser
     - TeleportAimHandlerParabolic
@@ -30,6 +32,7 @@ ScriptsOnlyBuild:
     - TeleportTransitionBlink
     - TeleportTransitionInstant
     - TeleportTransitionWarp
+    - Whiteboard
     Normal.Realtime.dll:
     - Normal.Realtime.RealtimeAvatar
     - Normal.Realtime.RealtimeAvatarManager
@@ -49,6 +52,7 @@ ScriptsOnlyBuild:
     Oculus.VR.dll:
     - OVRCameraRig
     - OVRDebugInfo
+    - OVRGrabbable
     - OVRGrabber
     - OVRManager
     - OVRScreenFade
@@ -108,95 +112,109 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11544}
+      Script: {instanceID: 11558}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11608}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11612}
     - Class: 114
-      Script: {instanceID: 11714}
+      Script: {instanceID: 11654}
     - Class: 114
-      Script: {instanceID: 11720}
+      Script: {instanceID: 11728}
     - Class: 114
-      Script: {instanceID: 11852}
+      Script: {instanceID: 11734}
     - Class: 114
-      Script: {instanceID: 12050}
+      Script: {instanceID: 11866}
     - Class: 114
-      Script: {instanceID: 12098}
+      Script: {instanceID: 12066}
     - Class: 114
-      Script: {instanceID: 12124}
+      Script: {instanceID: 12114}
     - Class: 114
-      Script: {instanceID: 12144}
+      Script: {instanceID: 12140}
     - Class: 114
-      Script: {instanceID: 12254}
+      Script: {instanceID: 12160}
     - Class: 114
-      Script: {instanceID: 12492}
+      Script: {instanceID: 12270}
     - Class: 114
       Script: {instanceID: 12510}
     - Class: 114
-      Script: {instanceID: 12662}
+      Script: {instanceID: 12528}
     - Class: 114
-      Script: {instanceID: 12682}
+      Script: {instanceID: 12680}
     - Class: 114
-      Script: {instanceID: 12794}
+      Script: {instanceID: 12700}
     - Class: 114
-      Script: {instanceID: 12796}
+      Script: {instanceID: 12812}
     - Class: 114
-      Script: {instanceID: 12834}
+      Script: {instanceID: 12814}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12852}
     - Class: 114
-      Script: {instanceID: 12928}
+      Script: {instanceID: 12944}
     - Class: 114
-      Script: {instanceID: 12994}
+      Script: {instanceID: 12946}
     - Class: 114
-      Script: {instanceID: 12998}
+      Script: {instanceID: 12958}
     - Class: 114
-      Script: {instanceID: 13002}
+      Script: {instanceID: 12960}
     - Class: 114
-      Script: {instanceID: 13070}
+      Script: {instanceID: 13012}
     - Class: 114
-      Script: {instanceID: 13094}
+      Script: {instanceID: 13016}
     - Class: 114
-      Script: {instanceID: 13102}
+      Script: {instanceID: 13020}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 13088}
     - Class: 114
-      Script: {instanceID: 13130}
+      Script: {instanceID: 13112}
     - Class: 114
-      Script: {instanceID: 13194}
+      Script: {instanceID: 13120}
     - Class: 114
-      Script: {instanceID: 13196}
+      Script: {instanceID: 13122}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13212}
+    - Class: 114
+      Script: {instanceID: 13214}
     - Class: 114
       Script: {instanceID: 13224}
     - Class: 114
-      Script: {instanceID: 13270}
+      Script: {instanceID: 13242}
     - Class: 114
-      Script: {instanceID: 13298}
+      Script: {instanceID: 13288}
     - Class: 114
-      Script: {instanceID: 13420}
+      Script: {instanceID: 13316}
     - Class: 114
-      Script: {instanceID: 13566}
+      Script: {instanceID: 13438}
     - Class: 114
-      Script: {instanceID: 13802}
+      Script: {instanceID: 13584}
     - Class: 114
-      Script: {instanceID: 13806}
+      Script: {instanceID: 13820}
     - Class: 114
-      Script: {instanceID: 13830}
+      Script: {instanceID: 13824}
     - Class: 114
-      Script: {instanceID: 14036}
+      Script: {instanceID: 13848}
     - Class: 114
-      Script: {instanceID: 14170}
+      Script: {instanceID: 14054}
     - Class: 114
-      Script: {instanceID: 14246}
+      Script: {instanceID: 14188}
     - Class: 114
-      Script: {instanceID: 14256}
+      Script: {instanceID: 14266}
     - Class: 114
-      Script: {instanceID: 14548}
+      Script: {instanceID: 14276}
     - Class: 114
-      Script: {instanceID: 14614}
+      Script: {instanceID: 14298}
     - Class: 114
-      Script: {instanceID: 14706}
+      Script: {instanceID: 14568}
+    - Class: 114
+      Script: {instanceID: 14634}
+    - Class: 114
+      Script: {instanceID: 14726}
+    - Class: 114
+      Script: {instanceID: 22748}
+    - Class: 114
+      Script: {instanceID: 49962}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -352,6 +370,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GrabRequest
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1782,7 +1806,7 @@ ScriptsOnlyBuild:
     className: OVRGridCube
   - hash:
       serializedVersion: 2
-      Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
+      Hash: 8e6ceabfd38a184413d69b7db56c89cc
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
@@ -2004,7 +2028,7 @@ ScriptsOnlyBuild:
     className: TestRunCallbackListener
   - hash:
       serializedVersion: 2
-      Hash: 4ef0f7d42cdb13479386e1f049c315aa
+      Hash: 9726bc46e15d44429bd38fb013657f1e
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
     className: PlaymodeTestsController
@@ -2098,6 +2122,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: e6e12bdec1d56c2f3fcbe58ec4e4b2f9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Whiteboard
+  - hash:
+      serializedVersion: 2
+      Hash: eede7957f23ff5c5ca7c650bd3fc44b9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Pen
   platform: 13
   scenePathNames:
   - Assets/Brush.unity
