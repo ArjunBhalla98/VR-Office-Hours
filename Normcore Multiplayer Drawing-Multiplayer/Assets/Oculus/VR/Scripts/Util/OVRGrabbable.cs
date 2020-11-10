@@ -75,6 +75,7 @@ public class OVRGrabbable : MonoBehaviour
     public Transform snapOffset
     {
         get { return m_snapOffset; }
+        set { m_snapOffset = value; }
     }
 
 	/// <summary>

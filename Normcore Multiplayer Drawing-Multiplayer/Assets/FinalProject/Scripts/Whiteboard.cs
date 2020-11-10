@@ -4,47 +4,42 @@ using UnityEngine;
 
 public class Whiteboard : MonoBehaviour
 {
+    Transform m_GrabOffset;
+
     Rigidbody rb;
-    Vector3 restingPosition;
-    Quaternion restingRotation;
-
-    [SerializeField]
-    Collider m_OuterCollider;
-
-    [SerializeField]
-    Collider m_InnerCollider;
+    OVRGrabbable m_GrabState;
+    bool isGrabbed = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        //rb = GetComponent<Rigidbody>();
-        //restingPosition = gameObject.transform.position;
-        //restingRotation = gameObject.transform.rotation;
-        Physics.IgnoreCollision(m_OuterCollider, m_InnerCollider, true);
+        rb = GetComponent<Rigidbody>();
+        m_GrabState = GetComponent<OVRGrabbable>();
+        m_GrabOffset = GameObject.Find("WhiteboardGrabOffset").transform;
+        m_GrabState.snapOffset = m_GrabOffset;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (m_GrabState.isGrabbed && !isGrabbed)
+        {
+            isGrabbed = true;
+            rb.constraints = RigidbodyConstraints.None;
+        }
+        else if (!m_GrabState.isGrabbed && isGrabbed)
+        {
+            isGrabbed = false;
+            rb.constraints = RigidbodyConstraints.FreezeAll; 
+	    }
 
     }
 
     private void FixedUpdate()
     {
-	    //rb.velocity = Vector3.zero;
-	    //rb.angularVelocity = Vector3.zero;
-     //   rb.position = restingPosition;
-     //   rb.rotation = restingRotation;
     }
 
     void OnCollisionEnter(Collision other)
     {
-        //rb.AddForce(-other.rigidbody.velocity);
-        //rb.Sleep();
-        //   gameObject.transform.position = restingPosition;
-        //   gameObject.transform.rotation = restingRotation;
-        //rb.velocity = Vector3.zero;
-        //rb.angularVelocity = Vector3.zero;
-        //rb.constraints = RigidbodyConstraints.FreezePosition;
     }
 }
