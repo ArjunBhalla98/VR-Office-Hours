@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - CharacterCameraConstraint
     - CharacterCapsule
     - GrabRequest
+    - HandLine
     - LocomotionController
     - LocomotionTeleport
     - Normal.Realtime.Examples.CubePlayer
@@ -34,6 +35,7 @@ ScriptsOnlyBuild:
     - TeleportTransitionInstant
     - TeleportTransitionWarp
     - Whiteboard
+    - WhiteboardEdge
     Normal.Realtime.dll:
     - Normal.Realtime.RealtimeAvatar
     - Normal.Realtime.RealtimeAvatarManager
@@ -212,11 +214,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14566}
     - Class: 114
-      Script: {instanceID: 14632}
+      Script: {instanceID: 14600}
     - Class: 114
-      Script: {instanceID: 14724}
+      Script: {instanceID: 14634}
     - Class: 114
-      Script: {instanceID: 42398}
+      Script: {instanceID: 14726}
+    - Class: 114
+      Script: {instanceID: 20878}
+    - Class: 114
+      Script: {instanceID: 23820}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1988,6 +1994,12 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
+      Hash: 9fba540c4d54b08b4afbeb7bf1b8f882
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerBehaviour
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -2138,10 +2150,16 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 9fba540c4d54b08b4afbeb7bf1b8f882
+      Hash: 36e9b4900bf20eebf8af7a40334307b2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: PlayerBehaviour
+    className: WhiteboardEdge
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HandLine
   platform: 13
   scenePathNames:
   - Assets/FinalProject/Brush.unity
