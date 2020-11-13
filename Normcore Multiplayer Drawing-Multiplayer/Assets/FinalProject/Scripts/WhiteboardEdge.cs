@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Normal.Realtime;
 
 public class WhiteboardEdge : MonoBehaviour
 {
@@ -8,13 +9,14 @@ public class WhiteboardEdge : MonoBehaviour
     GameObject m_WhiteboardSurface;
 
     [SerializeField]
-    GameObject m_RightHand;
-
-    [SerializeField]
     Material m_HighlightMaterial;
 
+    GameObject m_RightHand;
     Material originalMaterial;
     MeshRenderer meshRenderer;
+
+    RealtimeTransform _realtimeTransform;
+    RealtimeTransform _parentRealtimeTransform;
 
     bool isHovered = false;
 
@@ -23,6 +25,11 @@ public class WhiteboardEdge : MonoBehaviour
     {
         meshRenderer = GetComponent<MeshRenderer>();
         originalMaterial = meshRenderer.material;
+        m_RightHand = GameObject.Find("RightControllerAnchor");
+        
+        // Normcore stuff
+        _realtimeTransform = GetComponent<RealtimeTransform>();
+        _parentRealtimeTransform = m_WhiteboardSurface.GetComponent<RealtimeTransform>();
     }
 
     // Update is called once per frame
@@ -38,11 +45,16 @@ public class WhiteboardEdge : MonoBehaviour
 
                 if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
                 {
-                    // Simple, motion agnostic scale
-                    //Vector3 whiteboardSurfaceScale = m_WhiteboardSurface.transform.localScale;
-                    m_WhiteboardSurface.transform.localScale *= 1.2f;
-                    gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y * 1.2f, gameObject.transform.position.z);
+					_realtimeTransform.RequestOwnership();
+                    _parentRealtimeTransform.RequestOwnership();
+                    float beforePositionY = transform.position.y;
+                    float afterPositionY = hit.point.y;
+                    float scaleUpRatio = (afterPositionY - beforePositionY);
+                    m_WhiteboardSurface.transform.localScale += new Vector3(scaleUpRatio,scaleUpRatio, 0);
                 }
+                else
+                {
+		        }
             }
             else
             {
@@ -53,7 +65,7 @@ public class WhiteboardEdge : MonoBehaviour
         else if (isHovered)
         {
             isHovered = false;
-            meshRenderer.material = originalMaterial;	
+            meshRenderer.material = originalMaterial;
 	    }
     }
 }

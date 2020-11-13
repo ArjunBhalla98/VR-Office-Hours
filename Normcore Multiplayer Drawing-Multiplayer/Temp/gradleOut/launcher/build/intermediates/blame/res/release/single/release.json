@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher_background.png.flat",
+        "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/mipmap-mdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/res/merged/release/drawable-xhdpi_app_banner.png.flat",
+        "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/drawable-xhdpi/app_banner.png"
+    },
+    {
+        "merged": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/res/merged/release/mipmap-mdpi_app_icon.png.flat",
+        "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/mipmap-mdpi/app_icon.png"
+    },
+    {
+        "merged": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/res/merged/release/xml_network_sec_config.xml.flat",
+        "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/unityLibrary/build/intermediates/packaged_res/release/xml/network_sec_config.xml"
+    },
+    {
+        "merged": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/res/merged/release/mipmap-anydpi-v26_app_icon.xml.flat",
+        "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/mipmap-anydpi-v26/app_icon.xml"
+    },
+    {
+        "merged": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/res/merged/release/mipmap-anydpi-v26_app_icon_round.xml.flat",
+        "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/mipmap-anydpi-v26/app_icon_round.xml"
+    }
+]
