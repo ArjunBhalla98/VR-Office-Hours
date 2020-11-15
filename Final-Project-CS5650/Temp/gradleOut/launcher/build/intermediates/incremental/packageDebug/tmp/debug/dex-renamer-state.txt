@@ -1,0 +1,13 @@
+#Sun Nov 15 12:51:38 CST 2020
+path.3=classes.dex
+path.2=classes.dex
+path.1=classes.dex
+path.0=classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.3=/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/project-2020-g-06/Final-Project-CS5650/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/debug/3
+base.2=/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/project-2020-g-06/Final-Project-CS5650/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/debug/2
+base.1=/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/project-2020-g-06/Final-Project-CS5650/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/debug/1
+base.0=/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/project-2020-g-06/Final-Project-CS5650/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/debug/0
