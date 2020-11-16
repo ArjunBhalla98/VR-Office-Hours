@@ -22,16 +22,16 @@ public class Whiteboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_GrabState.isGrabbed && !isGrabbed)
+        if ((m_GrabState.isGrabbed && !isGrabbed))
         {
             isGrabbed = true;
             rb.constraints = RigidbodyConstraints.None;
         }
-        else if (!m_GrabState.isGrabbed && isGrabbed)
+        else if ((!m_GrabState.isGrabbed && isGrabbed))
         {
             isGrabbed = false;
-            rb.constraints = RigidbodyConstraints.FreezeAll; 
-	    }
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
 
     }
 
