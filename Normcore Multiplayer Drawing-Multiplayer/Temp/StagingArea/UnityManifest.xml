@@ -12,7 +12,7 @@
     </activity>
     <meta-data android:name="unity.splash-mode" android:value="0" />
     <meta-data android:name="unity.splash-enable" android:value="False" />
-    <meta-data android:name="unity.build-id" android:value="b55b9e16-c6cd-4373-a0ac-d6ef417e16c3" />
+    <meta-data android:name="unity.build-id" android:value="a8e6ca13-0f38-4547-acb7-5f56ab12e61c" />
   </application>
   <uses-feature android:glEsVersion="0x00020000" />
   <supports-gl-texture android:name="GL_KHR_texture_compression_astc_ldr" />

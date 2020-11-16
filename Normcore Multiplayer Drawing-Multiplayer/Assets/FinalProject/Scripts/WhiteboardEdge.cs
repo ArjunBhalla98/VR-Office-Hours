@@ -45,17 +45,14 @@ public class WhiteboardEdge : MonoBehaviour
 
                 if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
                 {
-					_realtimeTransform.RequestOwnership();
+                    _realtimeTransform.RequestOwnership();
                     _parentRealtimeTransform.RequestOwnership();
                     float beforePositionY = transform.position.y;
                     float afterPositionY = hit.point.y;
                     float scaleUpRatio = (afterPositionY - beforePositionY);
-                    m_WhiteboardSurface.transform.localScale += new Vector3(scaleUpRatio,scaleUpRatio, 0);
-                }
-                else
-                {
-		        }
-            }
+                    m_WhiteboardSurface.transform.localScale += new Vector3(scaleUpRatio, scaleUpRatio, 0);
+			    }
+			}
             else
             {
                 isHovered = false;

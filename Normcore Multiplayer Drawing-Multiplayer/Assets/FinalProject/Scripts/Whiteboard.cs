@@ -30,8 +30,8 @@ public class Whiteboard : MonoBehaviour
         else if ((!m_GrabState.isGrabbed && isGrabbed))
         {
             isGrabbed = false;
-            rb.constraints = RigidbodyConstraints.FreezeAll; 
-	    }
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
 
     }
 
