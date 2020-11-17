@@ -27,14 +27,15 @@ public class Pen : MonoBehaviour
 
     public Whiteboard whiteboard;
     private RaycastHit touch;
-    private bool isTouching;
+    private bool isTouching; // Is the pentip is in contact with the whiteboard
     // End Writing
 
-    LineRenderer lr;
+    // LineRenderer lr;
+
     // Start is called before the first frame update
     void Start()
     {
-        lr = GetComponent<LineRenderer>();
+        //lr = GetComponent<LineRenderer>();
 
         // Start Writing
         this.whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
@@ -56,7 +57,7 @@ public class Pen : MonoBehaviour
         //float tipHeight = m_PenTip.transform.localScale.y;
 
         // Start Writing
-        float tipHeight = 0.1f;
+        float tipHeight = 0.3f;
         Vector3 tip = m_PenTip.transform.position;
 
         if (Physics.Raycast(tip, transform.up, out touch, tipHeight)) {
@@ -106,7 +107,8 @@ public class Pen : MonoBehaviour
         if (!handIsTracking)
             triggerPressed = false;
 
-        // If the trigger is pressed and we haven't created a new brush stroke to draw, create one!
+        // If the trigger is pressed and we are in contact with the whiteboard,
+        // and we haven't created a new brush stroke to draw, create one!
         if (triggerPressed && _activeBrushStroke == null)
         {
             // Instantiate a copy of the Brush Stroke prefab, set it to be owned by us.
@@ -116,17 +118,20 @@ public class Pen : MonoBehaviour
             _activeBrushStroke = brushStrokeGameObject.GetComponent<BrushStroke>();
 
             // Tell the BrushStroke to begin drawing at the current brush position
-            _activeBrushStroke.BeginBrushStrokeWithBrushTipPoint(_handPosition, _handRotation);
+            //_activeBrushStroke.BeginBrushStrokeWithBrushTipPoint(_handPosition, _handRotation);
+            _activeBrushStroke.BeginBrushStrokeWithBrushTipPoint(m_PenTip.transform.position, m_PenTip.transform.rotation);
         }
 
         // If the trigger is pressed, and we have a brush stroke, move the brush stroke to the new brush tip position
         if (triggerPressed)
-            _activeBrushStroke.MoveBrushTipToPoint(_handPosition, _handRotation);
+            //_activeBrushStroke.MoveBrushTipToPoint(_handPosition, _handRotation);
+            _activeBrushStroke.MoveBrushTipToPoint(m_PenTip.transform.position, m_PenTip.transform.rotation);
 
         // If the trigger is no longer pressed, and we still have an active brush stroke, mark it as finished and clear it.
         if (!triggerPressed && _activeBrushStroke != null)
         {
-            _activeBrushStroke.EndBrushStrokeWithBrushTipPoint(_handPosition, _handRotation);
+            //_activeBrushStroke.EndBrushStrokeWithBrushTipPoint(_handPosition, _handRotation);
+            _activeBrushStroke.EndBrushStrokeWithBrushTipPoint(m_PenTip.transform.position, m_PenTip.transform.rotation);
             _activeBrushStroke = null;
         }
     }

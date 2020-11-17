@@ -121,6 +121,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &126255578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1557948473080096456, guid: da2b57a7e192a48578076c1cd84c40dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1557948472640803577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &126255579
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126255578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &170751827
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +416,7 @@ MonoBehaviour:
   _realtime: {fileID: 878789632}
   _brushStrokePrefab: {fileID: 1196413553089462, guid: 749d541d662db9f4fa312e0e4fb6cef1,
     type: 3}
+  _hand: 1
   whiteboard: {fileID: 0}
 --- !u!114 &339388382
 MonoBehaviour:
@@ -1782,6 +1803,11 @@ PrefabInstance:
     - target: {fileID: 1557948473080096459, guid: da2b57a7e192a48578076c1cd84c40dc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557948473080096460, guid: da2b57a7e192a48578076c1cd84c40dc,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
