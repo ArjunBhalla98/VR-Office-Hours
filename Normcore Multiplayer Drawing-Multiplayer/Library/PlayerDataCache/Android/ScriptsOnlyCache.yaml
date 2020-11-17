@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Brush
     - BrushStroke
     - BrushStrokeMesh
     - CharacterCameraConstraint
@@ -125,6 +126,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11726}
     - Class: 114
       Script: {instanceID: 11858}
+    - Class: 114
+      Script: {instanceID: 12046}
     - Class: 114
       Script: {instanceID: 12050}
     - Class: 114
@@ -584,7 +587,7 @@ ScriptsOnlyBuild:
     className: Brush
   - hash:
       serializedVersion: 2
-      Hash: c34185eb5c534a2201088fd973f3ca42
+      Hash: 92168b92f30dd21b84f7f559678973ee
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pen

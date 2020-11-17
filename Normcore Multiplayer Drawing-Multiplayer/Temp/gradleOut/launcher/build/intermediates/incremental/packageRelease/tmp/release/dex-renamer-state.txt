@@ -1,4 +1,4 @@
-#Tue Nov 17 14:53:01 CST 2020
+#Tue Nov 17 22:11:51 CST 2020
 base.0=/Users/xinchen/Desktop/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/release/0
 path.0=classes.dex
 renamed.0=classes.dex
