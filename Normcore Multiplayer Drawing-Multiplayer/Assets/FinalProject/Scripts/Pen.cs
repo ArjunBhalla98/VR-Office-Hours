@@ -9,7 +9,11 @@ public class Pen : MonoBehaviour
     [SerializeField]
     GameObject m_PenTip;
 
-    // Start Writing
+    ///////////////// Start Writing ////////////////
+
+    /// <summary>
+    /// Using Normcore brush mesh
+    /// </summary>
     // Reference to Realtime to use to instantiate brush strokes
     [SerializeField] private Realtime _realtime = null;
 
@@ -25,10 +29,14 @@ public class Pen : MonoBehaviour
     private Quaternion _handRotation;
     private BrushStroke _activeBrushStroke;
 
-    public Whiteboard whiteboard;
-    private RaycastHit touch;
-    private bool isTouching; // Is the pentip is in contact with the whiteboard
-    // End Writing
+    /// <summary>
+    /// Pen raycast variables for detecting if the PenTip touches the whiteboard
+    /// </summary>
+    public Whiteboard _whiteboard;
+    private RaycastHit _touch;
+    private bool _isTouching; // Is the pentip is in contact with the whiteboard
+    float tipHeight = 0.3f; // TODO: fine tune the distance to make writing smoother
+    ///////////////// End Writing ////////////////
 
     // LineRenderer lr;
 
@@ -37,11 +45,11 @@ public class Pen : MonoBehaviour
     {
         //lr = GetComponent<LineRenderer>();
 
-        // Start Writing
-        this.whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
+        ///////////////// Start Writing ////////////////
+        this._whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
 
-        isTouching = false;
-        // End Writing 
+        _isTouching = false;
+        ///////////////// END Writing ////////////////
     }
 
     // Update is called once per frame
@@ -56,35 +64,46 @@ public class Pen : MonoBehaviour
         //}
         //float tipHeight = m_PenTip.transform.localScale.y;
 
-        // Start Writing
-        float tipHeight = 0.3f;
+        ///////////////// Start Writing ////////////////
         Vector3 tip = m_PenTip.transform.position;
 
-        if (Physics.Raycast(tip, transform.up, out touch, tipHeight)) {
-            if (!(touch.collider.tag == "Whiteboard"))
+        if (Physics.Raycast(tip, transform.up, out _touch, tipHeight)) {
+            if (!(_touch.collider.tag == "Whiteboard"))
                 return;
 
-            this.whiteboard = touch.collider.GetComponent<Whiteboard>();
+            this._whiteboard = _touch.collider.GetComponent<Whiteboard>();
 
-            isTouching = true;
+            _isTouching = true;
 
             // Haptic feedback for writing, vibrates when the controller
             // touches the Whiteboard
             OVRInput.SetControllerVibration(1f, 0.1f, OVRInput.Controller.RTouch);
+
+            this._whiteboard.SetColor(Color.blue);
+            this._whiteboard.SetTouchPosition(_touch.textureCoord.x, _touch.textureCoord.y);
+            this._whiteboard.ToggleTouch(true);
         } else
         {
-            isTouching = false;
+            _isTouching = false;
 
             // Haptic feedback for writing, stop vibration when controller
             // leaves the Whiteboard
             OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
+
+            this._whiteboard.ToggleTouch(false);
         }
 
-        UpdateDrawBrush();
-        // End Writing
+        //UpdateDrawBrush(); // Using normcore ribben-like brush texture
+
+
+        ///////////////// END Writing ////////////////
     }
 
 
+    /// <summary>
+    /// Modification of Normcore drawing by enabling drawing from the pentip
+    /// using BrushStroke
+    /// </summary>
     void UpdateDrawBrush()
     {
         if (!_realtime.connected)
@@ -104,9 +123,9 @@ public class Pen : MonoBehaviour
         if (!handIsTracking)
             triggerPressed = false;
 
-        // If the trigger is pressed and we are in contact with the whiteboard,
+        // If the trigger is pressed and PenTip touches the board,
         // and we haven't created a new brush stroke to draw, create one!
-        if (triggerPressed && isTouching && _activeBrushStroke == null)
+        if (triggerPressed && _isTouching && _activeBrushStroke == null)
         {
             // Instantiate a copy of the Brush Stroke prefab, set it to be owned by us.
             GameObject brushStrokeGameObject = Realtime.Instantiate(_brushStrokePrefab.name, ownedByClient: true, useInstance: _realtime);
@@ -119,13 +138,15 @@ public class Pen : MonoBehaviour
             _activeBrushStroke.BeginBrushStrokeWithBrushTipPoint(m_PenTip.transform.position, m_PenTip.transform.rotation);
         }
 
-        // If the trigger is pressed, and we have a brush stroke, move the brush stroke to the new brush tip position
-        if (triggerPressed && isTouching)
+        // If the trigger is pressed and PenTip touches the board,
+        // and we have a brush stroke, move the brush stroke to the new brush tip position
+        if (triggerPressed && _isTouching)
             //_activeBrushStroke.MoveBrushTipToPoint(_handPosition, _handRotation);
             _activeBrushStroke.MoveBrushTipToPoint(m_PenTip.transform.position, m_PenTip.transform.rotation);
 
-        // If the trigger is no longer pressed, and we still have an active brush stroke, mark it as finished and clear it.
-        if (!triggerPressed && _activeBrushStroke != null)
+        // If the trigger is no longer pressed and the PenTip touches the board,
+        // and we still have an active brush stroke, mark it as finished and clear it.
+        if (!triggerPressed && _isTouching && _activeBrushStroke != null)
         {
             //_activeBrushStroke.EndBrushStrokeWithBrushTipPoint(_handPosition, _handRotation);
             _activeBrushStroke.EndBrushStrokeWithBrushTipPoint(m_PenTip.transform.position, m_PenTip.transform.rotation);

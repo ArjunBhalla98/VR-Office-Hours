@@ -587,7 +587,7 @@ ScriptsOnlyBuild:
     className: Brush
   - hash:
       serializedVersion: 2
-      Hash: 92168b92f30dd21b84f7f559678973ee
+      Hash: 503ef1173465dd639601ce00b948846c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pen
