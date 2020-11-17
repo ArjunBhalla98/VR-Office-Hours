@@ -393,6 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PenTip: {fileID: 1576143708}
+  whiteboard: {fileID: 0}
 --- !u!114 &339388382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,7 +1677,7 @@ PrefabInstance:
     - target: {fileID: 1557948473080096456, guid: da2b57a7e192a48578076c1cd84c40dc,
         type: 3}
       propertyPath: m_Name
-      value: Surface
+      value: Whiteboard
       objectReference: {fileID: 0}
     - target: {fileID: 1557948473080096459, guid: da2b57a7e192a48578076c1cd84c40dc,
         type: 3}
@@ -1756,7 +1757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1343164287, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: _components.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1343164287, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: _realtime
@@ -1773,7 +1774,7 @@ PrefabInstance:
     - target: {fileID: 1343164287, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: _components.Array.data[0].component
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 339388382}
     - target: {fileID: 1343164287, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: _components.Array.data[1].componentID
       value: 2
@@ -1782,6 +1783,10 @@ PrefabInstance:
       propertyPath: _components.Array.data[1].component
       value: 
       objectReference: {fileID: 339388382}
+    - target: {fileID: 1343164287, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
+      propertyPath: _components.Array.data[0].componentID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1343164289, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: m_snapPosition
       value: 1

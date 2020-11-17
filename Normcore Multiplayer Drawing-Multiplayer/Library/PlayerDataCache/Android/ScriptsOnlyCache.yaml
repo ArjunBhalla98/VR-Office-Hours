@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - LocomotionTeleport
     - Normal.Realtime.Examples.CubePlayer
     - Normal.Realtime.Examples.VoiceMouthMove
+    - ONSPSettings
     - OVRTouchSample.Hand
     - OVRTouchSample.HandPose
     - OculusSampleFramework.DistanceGrabbable
@@ -64,9 +65,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.Timeline.Editor.dll:
-    - UnityEditor.Timeline.SequenceHierarchy
-    - UnityEditor.Timeline.TimelineWindow
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -140,6 +138,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12264}
     - Class: 114
+      Script: {instanceID: 12362}
+    - Class: 114
       Script: {instanceID: 12504}
     - Class: 114
       Script: {instanceID: 12522}
@@ -212,11 +212,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14566}
     - Class: 114
-      Script: {instanceID: 14632}
+      Script: {instanceID: 14600}
     - Class: 114
-      Script: {instanceID: 14724}
+      Script: {instanceID: 14634}
     - Class: 114
-      Script: {instanceID: 42398}
+      Script: {instanceID: 14726}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -584,7 +584,7 @@ ScriptsOnlyBuild:
     className: Brush
   - hash:
       serializedVersion: 2
-      Hash: eede7957f23ff5c5ca7c650bd3fc44b9
+      Hash: c34185eb5c534a2201088fd973f3ca42
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pen
@@ -1988,6 +1988,12 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
+      Hash: 9fba540c4d54b08b4afbeb7bf1b8f882
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerBehaviour
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -2136,14 +2142,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 9fba540c4d54b08b4afbeb7bf1b8f882
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerBehaviour
   platform: 13
   scenePathNames:
   - Assets/FinalProject/Brush.unity
-  playerPath: /Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore
-    Multiplayer Drawing-Multiplayer/test.apk
+  playerPath: /Users/xinchen/Desktop/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/build.apk
