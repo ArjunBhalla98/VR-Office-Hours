@@ -74,6 +74,7 @@ public class Pen : MonoBehaviour
         } else
         {
             isTouching = false;
+
             // Haptic feedback for writing, stop vibration when controller
             // leaves the Whiteboard
             OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
@@ -83,10 +84,6 @@ public class Pen : MonoBehaviour
         // End Writing
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
 
     void UpdateDrawBrush()
     {
@@ -109,7 +106,7 @@ public class Pen : MonoBehaviour
 
         // If the trigger is pressed and we are in contact with the whiteboard,
         // and we haven't created a new brush stroke to draw, create one!
-        if (triggerPressed && _activeBrushStroke == null)
+        if (triggerPressed && isTouching && _activeBrushStroke == null)
         {
             // Instantiate a copy of the Brush Stroke prefab, set it to be owned by us.
             GameObject brushStrokeGameObject = Realtime.Instantiate(_brushStrokePrefab.name, ownedByClient: true, useInstance: _realtime);
@@ -123,7 +120,7 @@ public class Pen : MonoBehaviour
         }
 
         // If the trigger is pressed, and we have a brush stroke, move the brush stroke to the new brush tip position
-        if (triggerPressed)
+        if (triggerPressed && isTouching)
             //_activeBrushStroke.MoveBrushTipToPoint(_handPosition, _handRotation);
             _activeBrushStroke.MoveBrushTipToPoint(m_PenTip.transform.position, m_PenTip.transform.rotation);
 
