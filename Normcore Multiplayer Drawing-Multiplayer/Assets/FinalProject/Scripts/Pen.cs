@@ -9,8 +9,6 @@ public class Pen : MonoBehaviour
     [SerializeField]
     GameObject m_PenTip;
 
-    ///////////////// Start Writing ////////////////
-
     /// <summary>
     /// Using Normcore brush mesh
     /// </summary>
@@ -29,6 +27,9 @@ public class Pen : MonoBehaviour
     private Quaternion _handRotation;
     private BrushStroke _activeBrushStroke;
 
+    /// <summary>
+    /// Texture mapping
+    /// </summary>
     // board writing on
     public Whiteboard _whiteboard;
     private RaycastHit _touch;
@@ -37,7 +38,6 @@ public class Pen : MonoBehaviour
 
     // color of the brush
     public Color32 _penColor;
-    ///////////////// End Writing ////////////////
 
     // LineRenderer lr;
 
@@ -46,11 +46,9 @@ public class Pen : MonoBehaviour
     {
         //lr = GetComponent<LineRenderer>();
 
-        ///////////////// Start Writing ////////////////
         this._whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
 
         _isTouching = false;
-        ///////////////// END Writing ////////////////
     }
 
     // Update is called once per frame
@@ -65,14 +63,11 @@ public class Pen : MonoBehaviour
         //}
         //float tipHeight = m_PenTip.transform.localScale.y;
 
-        ///////////////// Start Writing ////////////////
         Vector3 tip = m_PenTip.transform.position;
         //Debug.DrawRay(tip, transform.forward, Color.green);
 
-        Debug.Log("?????");
-
         if (Physics.Raycast(tip, transform.forward, out _touch, tipHeight)) {
-            if (!(_touch.collider.tag == "Whiteboard"))
+            if (!(_touch.collider.tag.Equals("Whiteboard")))
                 return;
             
             this._whiteboard = _touch.collider.GetComponent<Whiteboard>();
@@ -83,9 +78,6 @@ public class Pen : MonoBehaviour
             // touches the Whiteboard
             OVRInput.SetControllerVibration(1f, 0.1f, OVRInput.Controller.RTouch);
 
-            //this._whiteboard.SetColor(Color.blue);
-            //this._whiteboard.SetTouchPosition(_touch.textureCoord.x, _touch.textureCoord.y);
-            //this._whiteboard.ToggleTouch(true);
             _whiteboard.SetTouchPositon(_touch.textureCoord.x, _touch.textureCoord.y);
             //Current pen color
             _whiteboard.SetColor(new Color32(0, 255, 0, 255));
@@ -97,14 +89,9 @@ public class Pen : MonoBehaviour
             // Haptic feedback for writing, stop vibration when controller
             // leaves the Whiteboard
             OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
-
-            this._whiteboard.ToggleTouch(false);
         }
 
         //UpdateDrawBrush(); // Using normcore ribben-like brush texture
-
-
-        ///////////////// END Writing ////////////////
     }
 
 

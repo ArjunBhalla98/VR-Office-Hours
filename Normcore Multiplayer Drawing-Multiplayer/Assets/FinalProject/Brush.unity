@@ -1772,6 +1772,11 @@ PrefabInstance:
       propertyPath: _isRootPrefabView
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1557948473080096450, guid: da2b57a7e192a48578076c1cd84c40dc,
+        type: 3}
+      propertyPath: lerp
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1557948473080096451, guid: da2b57a7e192a48578076c1cd84c40dc,
         type: 3}
       propertyPath: m_snapOffset

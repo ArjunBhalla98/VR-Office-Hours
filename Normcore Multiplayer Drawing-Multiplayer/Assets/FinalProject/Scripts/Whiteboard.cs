@@ -38,11 +38,6 @@ public class Whiteboard : MonoBehaviour
     private Color32[] _color;
 
 
-    //private int _textureSize = 2048;
-    //private int _penSize = 10;
-    ////private bool _touching, _touchingLast;
-    //private int _posX, _posY;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -52,24 +47,21 @@ public class Whiteboard : MonoBehaviour
         m_GrabOffset = GameObject.Find("WhiteboardGrabOffset").transform;
         m_GrabState.snapOffset = m_GrabOffset;
 
-        //Renderer renderer = GetComponent<Renderer>();
-        //Debug.Log("Hello????????" + renderer);
-        //this._texture = new Texture2D(_textureSize, _textureSize);
-        //renderer.material.mainTexture = this._texture;
-
-        //this.SetColor(Color.blue);
-        //_texture.SetPixels(2000, 2000, _penSize, _penSize, _color);
-        //_texture.Apply();
+        // TODO: attempt to get the texture from the meshrenderer,
+        // right now it's non-existant and the dimension of the texture is hardcoded
+        // i.e. our board is 1.98 x 1.08 -> 1980x1080 right now
 
         //Get the size of the original texture of the board
         //Texture2D originTexture = (Texture2D)this.GetComponent<MeshRenderer>().material.mainTexture;
         //Debug.Log("============");
         //Debug.Log(originTexture);
         Debug.Log(this.GetComponent<Renderer>().material);
+
+        //TODO: could change the size of the board
         _textureWidth = 1980 * 2; //1920 
         _textureHeight = 1080 * 2; //1080
 
-        //Set current picture
+        //Set current texture
         _texture = new Texture2D(_textureWidth, _textureHeight, TextureFormat.RGBA32, false, true);
         //_texture.SetPixels32(originTexture.GetPixels32());
         _texture.Apply();
@@ -95,20 +87,6 @@ public class Whiteboard : MonoBehaviour
             isGrabbed = false;
             rb.constraints = RigidbodyConstraints.FreezeAll; 
 	    }
-
-        //int x = (int)(_posX * _textureSize - (_penSize / 2));
-        //int y = (int)(_posY * _textureSize - (_penSize / 2));
-
-        //if (_touchingLast)
-        //{
-        //    _texture.SetPixels32(x, y, _penSize, _penSize, _color);
-        //    _texture.Apply();
-        //}
-
-        //this._lastX = (float)x;
-        //this._lastY = (float)y;
-
-        //this._touchingLast = this._touching;
     }
 
     private void LateUpdate()
@@ -143,37 +121,7 @@ public class Whiteboard : MonoBehaviour
     }
 
 
-        private void FixedUpdate()
-    {
-    }
-
-
-    void OnCollisionEnter(Collision other)
-    {
-    }
-
-
     ///////// Texture mapping for writing
-
-    public void ToggleTouch(bool touching)
-    {
-        this._isTouching = touching;
-    }
-
-    //public void SetColor(Color color)
-    //{
-    //    this._color = Enumerable.Repeat<Color>(color, _penSize * _penSize).ToArray<Color>();
-    //}
-
-    /// <summary>
-    ///Set the UV position of the current brush
-    /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    public void SetTouchPositon(float x, float y)
-    {
-        _paintPos.Set(x, y);
-    }
 
     /// <summary>
     ///Is the brush drawing at present
@@ -190,6 +138,18 @@ public class Whiteboard : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    ///Set the UV position of the current brush
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    public void SetTouchPositon(float x, float y)
+    {
+        _paintPos.Set(x, y);
+    }
+
+
     /// <summary>
     ///Use the color of the brush currently on the palette
     /// </summary>
@@ -205,6 +165,10 @@ public class Whiteboard : MonoBehaviour
         }
     }
 }
+
+
+//// Utility
+
 
 public static class MethodExtention
 {
