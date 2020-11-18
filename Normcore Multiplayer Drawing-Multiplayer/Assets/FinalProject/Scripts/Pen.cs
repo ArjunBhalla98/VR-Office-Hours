@@ -33,7 +33,7 @@ public class Pen : MonoBehaviour
     public Whiteboard _whiteboard;
     private RaycastHit _touch;
     private bool _isTouching; // Is the pentip is in contact with the whiteboard
-    float tipHeight = 0.3f; // TODO: fine tune the distance to make writing smoother
+    float tipHeight = 0.05f; // TODO: fine tune the distance to make writing smoother
 
     // color of the brush
     public Color32 _penColor;
@@ -67,11 +67,11 @@ public class Pen : MonoBehaviour
 
         ///////////////// Start Writing ////////////////
         Vector3 tip = m_PenTip.transform.position;
-        Debug.DrawRay(tip, transform.forward, Color.green);
+        //Debug.DrawRay(tip, transform.forward, Color.green);
 
         Debug.Log("?????");
 
-        if (Physics.Raycast(tip, transform.up, out _touch, tipHeight)) {
+        if (Physics.Raycast(tip, transform.forward, out _touch, tipHeight)) {
             if (!(_touch.collider.tag == "Whiteboard"))
                 return;
             

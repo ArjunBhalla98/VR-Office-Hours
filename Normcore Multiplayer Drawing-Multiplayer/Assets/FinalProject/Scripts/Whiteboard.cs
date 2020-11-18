@@ -66,8 +66,8 @@ public class Whiteboard : MonoBehaviour
         //Debug.Log("============");
         //Debug.Log(originTexture);
         Debug.Log(this.GetComponent<Renderer>().material);
-        _textureWidth = 1980; //1920 
-        _textureHeight = 1080; //1080
+        _textureWidth = 1980 * 2; //1920 
+        _textureHeight = 1080 * 2; //1080
 
         //Set current picture
         _texture = new Texture2D(_textureWidth, _textureHeight, TextureFormat.RGBA32, false, true);
