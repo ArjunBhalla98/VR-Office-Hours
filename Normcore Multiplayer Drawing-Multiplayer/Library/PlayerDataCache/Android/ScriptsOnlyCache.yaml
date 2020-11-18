@@ -587,7 +587,7 @@ ScriptsOnlyBuild:
     className: Brush
   - hash:
       serializedVersion: 2
-      Hash: 503ef1173465dd639601ce00b948846c
+      Hash: 7cb0c47d265e9accb90c57ee2bacb12a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pen
@@ -887,7 +887,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: dc47efa9ad293dc4d61a2be2e26e2936
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Whiteboard
