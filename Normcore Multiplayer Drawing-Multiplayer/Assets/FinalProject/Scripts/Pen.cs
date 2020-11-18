@@ -67,11 +67,12 @@ public class Pen : MonoBehaviour
 
         ///////////////// Start Writing ////////////////
         Vector3 tip = m_PenTip.transform.position;
+        Debug.DrawRay(tip, transform.forward, Color.green);
 
-        if (Physics.Raycast(tip, transform.up, out _touch, tipHeight)) {
+        if (Physics.Raycast(tip, transform.forward, out _touch, tipHeight)) {
             if (!(_touch.collider.tag == "Whiteboard"))
                 return;
-
+            
             this._whiteboard = _touch.collider.GetComponent<Whiteboard>();
 
             _isTouching = true;
