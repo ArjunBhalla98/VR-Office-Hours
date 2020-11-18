@@ -53,6 +53,7 @@ public class Whiteboard : MonoBehaviour
         m_GrabState.snapOffset = m_GrabOffset;
 
         //Renderer renderer = GetComponent<Renderer>();
+        //Debug.Log("Hello????????" + renderer);
         //this._texture = new Texture2D(_textureSize, _textureSize);
         //renderer.material.mainTexture = this._texture;
 
@@ -61,16 +62,17 @@ public class Whiteboard : MonoBehaviour
         //_texture.Apply();
 
         //Get the size of the original texture of the board
-        //Texture2D originTexture = this.GetComponent<MeshRenderer>().material.mainTexture as Texture2D;
+        //Texture2D originTexture = (Texture2D)this.GetComponent<MeshRenderer>().material.mainTexture;
         //Debug.Log("============");
         //Debug.Log(originTexture);
-        _textureWidth = 1920; //1920 
+        Debug.Log(this.GetComponent<Renderer>().material);
+        _textureWidth = 1980; //1920 
         _textureHeight = 1080; //1080
 
         //Set current picture
-        //_texture = new Texture2D(_textureWidth, _textureHeight, TextureFormat.RGBA32, false, true);
+        _texture = new Texture2D(_textureWidth, _textureHeight, TextureFormat.RGBA32, false, true);
         //_texture.SetPixels32(originTexture.GetPixels32());
-        //_texture.Apply();
+        _texture.Apply();
 
         //Assign to whiteboard
         GetComponent<MeshRenderer>().material.mainTexture = _texture;
