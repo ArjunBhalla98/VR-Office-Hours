@@ -33,12 +33,17 @@ public class Pen : MonoBehaviour
     // board writing on
     public Whiteboard _whiteboard;
     private RaycastHit _touch;
+    RaycastHit _stillInRange;
     private bool _isTouching; // Is the pentip is in contact with the whiteboard
     float tipHeight = 0.05f; // TODO: fine tune the distance to make writing smoother
 
     // color of the brush
     public Color32 _penColor;
 
+    // For making sure the pen doesn't go through the board
+    float lastZPosition;
+    float penDistance;
+    float originalTransformDistance;
     // LineRenderer lr;
 
     // Start is called before the first frame update
@@ -78,7 +83,16 @@ public class Pen : MonoBehaviour
             if (!(_touch.collider.tag.Equals("Whiteboard")))
                 return;
 
+            if (!_isTouching)
+            {
+                lastZPosition = transform.position.z;
+	        }
+
+			transform.position = new Vector3(transform.position.x, transform.position.y, lastZPosition);
+
             this._whiteboard = _touch.collider.GetComponent<Whiteboard>();
+            RealtimeTransform whiteboardTransform = _whiteboard.GetComponent<RealtimeTransform>();
+            whiteboardTransform.RequestOwnership();
 
             _isTouching = true;
 
@@ -96,14 +110,27 @@ public class Pen : MonoBehaviour
         }
         else
         {
-            _isTouching = false;
+            if (Physics.Raycast(transform.position, transform.forward, out _stillInRange, 0.06f) && _isTouching)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, lastZPosition);
+            }
+            else
+            { 
+			    _isTouching = false;
+			    // Haptic feedback for writing, stop vibration when controller
+			    // leaves the Whiteboard
+			    OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
+	    
+	        }
 
-            // Haptic feedback for writing, stop vibration when controller
-            // leaves the Whiteboard
-            OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
         }
 
         //UpdateDrawBrush(); // Using normcore ribben-like brush texture
+    }
+
+    bool isBehind(Whiteboard obj1, GameObject obj2)
+    {
+        return Vector3.Dot(obj1.transform.forward, obj1.transform.InverseTransformPoint(obj2.transform.position)) <= 0;
     }
 
 

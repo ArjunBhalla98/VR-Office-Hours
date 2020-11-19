@@ -131,6 +131,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PenTip: {fileID: 9124334964270499091}
+  _realtime: {fileID: 0}
+  _brushStrokePrefab: {fileID: 0}
+  _hand: 1
+  _whiteboard: {fileID: 0}
+  _penColor:
+    serializedVersion: 2
+    rgba: 0
 --- !u!1 &9124334964270499091
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9124334964270499091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.809}
+  m_LocalPosition: {x: 0, y: 0, z: 1.6}
   m_LocalScale: {x: 0.14220546, y: -0.08639838, z: 0.9937881}
   m_Children: []
   m_Father: {fileID: 9205442481545768764}
@@ -173,7 +180,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1
-  m_Height: 0.5
+  m_Height: 1
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8668009089045760215
