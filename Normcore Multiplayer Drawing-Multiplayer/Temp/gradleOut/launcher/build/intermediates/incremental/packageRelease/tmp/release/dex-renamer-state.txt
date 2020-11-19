@@ -1,0 +1,4 @@
+#Thu Nov 19 12:39:13 EST 2020
+base.0=/Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/project/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/release/0
+path.0=classes.dex
+renamed.0=classes.dex

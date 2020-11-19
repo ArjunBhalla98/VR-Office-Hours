@@ -2162,5 +2162,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/FinalProject/Brush.unity
-  playerPath: /Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore
-    Multiplayer Drawing-Multiplayer/test.apk
+  playerPath: /Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/project/project-2020-g-06/brush.apk
