@@ -755,7 +755,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339388379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -858,6 +858,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PenTip: {fileID: 1576143708}
+  _realtime: {fileID: 878789632}
+  _brushStrokePrefab: {fileID: 1196413553089462, guid: 749d541d662db9f4fa312e0e4fb6cef1,
+    type: 3}
+  _hand: 1
+  _whiteboard: {fileID: 1271733893}
+  _penColor:
+    serializedVersion: 2
+    rgba: 0
 --- !u!114 &339388382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,6 +1482,11 @@ PrefabInstance:
       propertyPath: m_HighlightMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 5cd9582c6cdea4863945653be891be42, type: 2}
+    - target: {fileID: 3466316847594568339, guid: da2b57a7e192a48578076c1cd84c40dc,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3466316847594568340, guid: da2b57a7e192a48578076c1cd84c40dc,
         type: 3}
       propertyPath: m_Name
@@ -1532,6 +1545,11 @@ PrefabInstance:
     - target: {fileID: 3466316847594568341, guid: da2b57a7e192a48578076c1cd84c40dc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466316847594568556, guid: da2b57a7e192a48578076c1cd84c40dc,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3466316847594568558, guid: da2b57a7e192a48578076c1cd84c40dc,
@@ -3098,6 +3116,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270882408}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1271733892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3466316847594568340, guid: da2b57a7e192a48578076c1cd84c40dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 636450367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1271733893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3466316847594568338, guid: da2b57a7e192a48578076c1cd84c40dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 636450367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271733892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a46255e8f15452e9fc2c72d8efd97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &1271733894
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271733892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1419163822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3845,7 +3895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1343164287, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: _components.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1343164287, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: _realtime
@@ -3862,7 +3912,7 @@ PrefabInstance:
     - target: {fileID: 1343164287, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: _components.Array.data[0].component
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 339388382}
     - target: {fileID: 1343164287, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: _components.Array.data[1].componentID
       value: 2
@@ -3871,6 +3921,10 @@ PrefabInstance:
       propertyPath: _components.Array.data[1].component
       value: 
       objectReference: {fileID: 339388382}
+    - target: {fileID: 1343164287, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
+      propertyPath: _components.Array.data[0].componentID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1343164289, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: m_snapPosition
       value: 1

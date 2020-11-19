@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/assignments/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values/ids.xml",
+                    "source": "/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/assignments/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,101",
+                        "endColumns": "47,65",
+                        "endOffsets": "98,164"
+                    },
+                    "to": {
+                        "startLines": "3,4",
+                        "startColumns": "4,4",
+                        "startOffsets": "101,151",
+                        "endColumns": "49,67",
+                        "endOffsets": "146,214"
+                    }
+                },
+                {
+                    "source": "/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/assignments/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values/ids.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values/styles.xml",
+                    "source": "/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/assignments/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "5,2,7",
                         "startColumns": "0,0,0",
@@ -37,23 +54,6 @@
                         "endLines": "6,9,13",
                         "endColumns": "8,8,8",
                         "endOffsets": "314,452,679"
-                    }
-                },
-                {
-                    "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values/strings.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "2,2",
-                        "startOffsets": "53,101",
-                        "endColumns": "47,65",
-                        "endOffsets": "98,164"
-                    },
-                    "to": {
-                        "startLines": "3,4",
-                        "startColumns": "4,4",
-                        "startOffsets": "101,151",
-                        "endColumns": "49,67",
-                        "endOffsets": "146,214"
                     }
                 }
             ]
