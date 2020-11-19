@@ -62,8 +62,8 @@ public class Whiteboard : MonoBehaviour
 
         //TODO: could change the size of the board
         _localScale = transform.localScale;
-        _textureWidth = (int)(_localScale.x * 1000) * 2; 
-        _textureHeight = (int)(_localScale.y * 1000) * 2; 
+        _textureWidth = (int)(_localScale.x * 1000); 
+        _textureHeight = (int)(_localScale.y * 1000); 
         Debug.Log(_textureWidth);
 
         //Set current texture
