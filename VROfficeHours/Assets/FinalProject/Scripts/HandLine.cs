@@ -18,5 +18,16 @@ public class HandLine : MonoBehaviour
     {
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, transform.position + lineDistance * transform.forward);
+
+        RaycastHit _out;
+        if (Physics.Raycast(transform.position, transform.forward, out _out, Mathf.Infinity))
+        {
+            GameObject obj = _out.collider.gameObject;
+
+            if (obj.CompareTag("Whiteboard") && OVRInput.Get(OVRInput.Button.Two))
+            {
+                Destroy(obj); 
+	        }
+	    }
     }
 }
