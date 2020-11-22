@@ -565,7 +565,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarSDKManager
   - hash:
       serializedVersion: 2
-      Hash: 4fb8481ee51bda8fbe62b592080121d3
+      Hash: 9588f68855d48339f905825b9f403fcd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pen
@@ -2138,5 +2138,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/FinalProject/Scenes/OfficeHoursRoom.unity
-  playerPath: /Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS
-    5650 VR/assignments/project-2020-g-06/VROfficeHours/build.apk
+  playerPath: /Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours/test.apk

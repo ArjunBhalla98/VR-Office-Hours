@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Normal.Realtime;
 
 public class HandLine : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class HandLine : MonoBehaviour
 
             if (obj.CompareTag("Whiteboard") && OVRInput.Get(OVRInput.Button.Two))
             {
-                Destroy(obj); 
+                Realtime.Destroy(obj);
 	        }
 	    }
     }

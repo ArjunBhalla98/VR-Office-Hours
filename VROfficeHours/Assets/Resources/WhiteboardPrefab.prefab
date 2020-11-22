@@ -116,6 +116,16 @@ PrefabInstance:
       propertyPath: _isRootPrefabView
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3466316847594568559, guid: da2b57a7e192a48578076c1cd84c40dc,
+        type: 3}
+      propertyPath: m_grabPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466316847594568559, guid: da2b57a7e192a48578076c1cd84c40dc,
+        type: 3}
+      propertyPath: m_grabPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1271733894}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da2b57a7e192a48578076c1cd84c40dc, type: 3}
 --- !u!1 &5318033584872203815 stripped

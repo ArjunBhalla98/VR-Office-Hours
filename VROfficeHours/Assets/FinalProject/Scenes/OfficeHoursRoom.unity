@@ -742,6 +742,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300484666}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &339388380 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 1271733894, guid: b411a3b1d7b1a41fe9175fc90b41c575,
+    type: 3}
+  m_PrefabInstance: {fileID: 8779670235899472524}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &342376401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,9 +2016,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 3
 --- !u!1001 &878789631
 PrefabInstance:
@@ -2052,6 +2058,11 @@ PrefabInstance:
     - target: {fileID: 4520454903943832, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114501696213753918, guid: fca9d4afb3743274e8f7da14019d7e0b,
+        type: 3}
+      propertyPath: _roomToJoinOnStart
+      value: Main Office Hours Room
       objectReference: {fileID: 0}
     - target: {fileID: 114568985850100520, guid: fca9d4afb3743274e8f7da14019d7e0b,
         type: 3}
@@ -3640,6 +3651,10 @@ PrefabInstance:
       propertyPath: _whiteboard
       value: 
       objectReference: {fileID: 1271733893}
+    - target: {fileID: 339388381, guid: 9735d2e8ffcba49519f40a126bf67061, type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 799940637}
     - target: {fileID: 603452450672630632, guid: 9735d2e8ffcba49519f40a126bf67061,
         type: 3}
       propertyPath: m_snapOffset
@@ -3663,6 +3678,11 @@ PrefabInstance:
     - target: {fileID: 603452450672630678, guid: 9735d2e8ffcba49519f40a126bf67061,
         type: 3}
       propertyPath: _isRootPrefabView
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574786072496853498, guid: 9735d2e8ffcba49519f40a126bf67061,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8619795011916151765, guid: 9735d2e8ffcba49519f40a126bf67061,
@@ -3724,6 +3744,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: sharpie
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994947707307188591, guid: 9735d2e8ffcba49519f40a126bf67061,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9735d2e8ffcba49519f40a126bf67061, type: 3}
@@ -3794,6 +3819,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Whiteboard
       objectReference: {fileID: 0}
+    - target: {fileID: 5318033584872204252, guid: b411a3b1d7b1a41fe9175fc90b41c575,
+        type: 3}
+      propertyPath: m_grabPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318033584872204252, guid: b411a3b1d7b1a41fe9175fc90b41c575,
+        type: 3}
+      propertyPath: m_grabPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 339388380}
     - target: {fileID: 5318033584872204253, guid: b411a3b1d7b1a41fe9175fc90b41c575,
         type: 3}
       propertyPath: _realtime

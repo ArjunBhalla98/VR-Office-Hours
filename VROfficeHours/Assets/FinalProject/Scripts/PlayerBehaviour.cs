@@ -31,12 +31,6 @@ public class PlayerBehaviour : MonoBehaviour
         respawnTimer = k_respawnTime;
         penRespawnTimer = k_respawnTime;
         _realtime = GetComponent<Realtime>();
-        _realtime.didConnectToRoom += _realtime_didConnectToRoom;
-    }
-
-    private void _realtime_didConnectToRoom(Realtime realtime)
-    {
-        throw new System.NotImplementedException();
     }
 
     // Update is called once per frame

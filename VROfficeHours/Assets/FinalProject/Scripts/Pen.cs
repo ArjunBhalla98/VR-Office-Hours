@@ -9,11 +9,6 @@ public class Pen : MonoBehaviour
     [SerializeField]
     GameObject m_PenTip;
 
-    /// <summary>
-    /// Using Normcore brush mesh
-    /// </summary>
-    // Reference to Realtime to use to instantiate brush strokes
-    [SerializeField] private Realtime _realtime = null;
 
     // Prefab to instantiate when we draw a new brush stroke
     //[SerializeField] private GameObject _brushStrokePrefab = null;
@@ -21,6 +16,9 @@ public class Pen : MonoBehaviour
     // Which hand should this brush instance track?
     private enum Hand { LeftHand, RightHand };
     [SerializeField] private Hand _hand = Hand.RightHand;
+    [SerializeField]
+    GameObject rightHand;
+
 
     // Used to keep track of the current brush tip position and the actively drawing brush stroke
     private Vector3 _handPosition;
@@ -35,22 +33,24 @@ public class Pen : MonoBehaviour
     private RaycastHit _touch;
     RaycastHit _stillInRange;
     private bool _isTouching; // Is the pentip is in contact with the whiteboard
-    float tipHeight = 0.1f; // TODO: fine tune the distance to make writing smoother
+    float raycastLength = 0.1f; // TODO: fine tune the distance to make writing smoother
 
     // color of the brush
     public Color32 _penColor;
 
     // For making sure the pen doesn't go through the board
-    float lastZPosition;
+    float lastZPosition; // obsolete hold on
+    Vector3 distanceToPen;
     //LineRenderer lr;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         //lr = GetComponent<LineRenderer>();
 
-        this._whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
-
+        _whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
+        rb = GetComponent<Rigidbody>();
         _isTouching = false;
     }
 
@@ -74,9 +74,9 @@ public class Pen : MonoBehaviour
         // Figure out if the trigger is pressed or not
         //bool triggerPressed = Input.GetAxisRaw(trigger) > 0.1f;
 
-        if (Physics.Raycast(transform.position, transform.forward, out _touch, tipHeight))
+        if (Physics.Raycast(transform.position, transform.forward, out _touch, raycastLength))
         {
-            if (!(_touch.collider.tag.Equals("Whiteboard")))
+            if (!(_touch.collider.gameObject.CompareTag("Whiteboard")))
                 return;
 
             if (!_isTouching)
@@ -84,9 +84,9 @@ public class Pen : MonoBehaviour
                 lastZPosition = transform.position.z;
 	        }
 
-			transform.position = new Vector3(transform.position.x, transform.position.y, lastZPosition);
+            transform.position = new Vector3(transform.position.x, transform.position.y, lastZPosition);
 
-            this._whiteboard = _touch.collider.gameObject.GetComponent<Whiteboard>();
+            _whiteboard = _touch.collider.gameObject.GetComponent<Whiteboard>();
             RealtimeTransform whiteboardTransform = _whiteboard.GetComponent<RealtimeTransform>();
             whiteboardTransform.RequestOwnership();
 
