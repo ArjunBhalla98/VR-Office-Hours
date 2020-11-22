@@ -12,12 +12,16 @@ public class PlayerBehaviour : MonoBehaviour
     Transform m_PlayerBase;
 
     public float m_WhiteboardSpawnOffset;
-    
+    public float m_penSpawnOffset;
+
     bool isSpawned = false;
+    bool isPenSpawned = false;
     const float k_respawnTime = 1f;
     float respawnTimer;
+    float penRespawnTimer;
 
     const string m_PrefabName = "Whiteboard";
+    const string m_PenPrefabName = "sharpiePrefab";
 
     Realtime _realtime;
 
@@ -25,6 +29,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         respawnTimer = k_respawnTime;
+        penRespawnTimer = k_respawnTime;
         _realtime = GetComponent<Realtime>();
         _realtime.didConnectToRoom += _realtime_didConnectToRoom;
     }
@@ -58,5 +63,27 @@ public class PlayerBehaviour : MonoBehaviour
                 respawnTimer = k_respawnTime; 
 	        }
 	    }
+
+        if (OVRInput.Get(OVRInput.Button.Three) && !isPenSpawned)
+        {
+            GameObject instantiatedPen = Realtime.Instantiate(m_PenPrefabName,
+                position: m_PlayerBase.position + m_WhiteboardSpawnOffset * m_PlayerBase.forward,
+                rotation: Quaternion.identity,
+                ownedByClient: false,
+                preventOwnershipTakeover: false,
+                useInstance: _realtime);
+
+            instantiatedPen.transform.LookAt(m_PlayerBase);
+            isPenSpawned = true;
+        }
+        else if (isPenSpawned)
+        {
+            penRespawnTimer -= Time.deltaTime;
+            if (penRespawnTimer <= 0)
+            {
+                isPenSpawned = false;
+                penRespawnTimer = k_respawnTime;
+            }
+        }
     }
 }
