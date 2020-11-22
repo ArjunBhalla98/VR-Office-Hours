@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/project/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v28/values-v28.xml",
+            "outputFile": "/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/assignments/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "/Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/project/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values-v28/styles.xml",
+                    "source": "/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/assignments/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/Temp/gradleOut/launcher/src/main/res/values-v28/styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "2",

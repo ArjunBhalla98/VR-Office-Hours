@@ -13,7 +13,7 @@ public class Pen : MonoBehaviour
     /// Using Normcore brush mesh
     /// </summary>
     // Reference to Realtime to use to instantiate brush strokes
-    [SerializeField] private Realtime _realtime = null;
+    private Realtime _realtime;
 
     // Prefab to instantiate when we draw a new brush stroke
     [SerializeField] private GameObject _brushStrokePrefab = null;
@@ -50,6 +50,7 @@ public class Pen : MonoBehaviour
     void Start()
     {
         //lr = GetComponent<LineRenderer>();
+        _realtime = GetComponent<Realtime>();
 
         this._whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
 

@@ -589,7 +589,7 @@ ScriptsOnlyBuild:
     className: Brush
   - hash:
       serializedVersion: 2
-      Hash: 7cb0c47d265e9accb90c57ee2bacb12a
+      Hash: e4edfb530400aebc75d574aec39d1494
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pen
@@ -2162,4 +2162,5 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/FinalProject/Brush.unity
-  playerPath: /Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/project/project-2020-g-06/brush.apk
+  playerPath: /Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS
+    5650 VR/assignments/project-2020-g-06/Normcore Multiplayer Drawing-Multiplayer/build.apk

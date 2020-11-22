@@ -3946,6 +3946,10 @@ PrefabInstance:
       propertyPath: _components.Array.data[0].componentID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1343164288, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
+      propertyPath: _realtime
+      value: 
+      objectReference: {fileID: 878789632}
     - target: {fileID: 1343164289, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
       propertyPath: m_snapPosition
       value: 1
