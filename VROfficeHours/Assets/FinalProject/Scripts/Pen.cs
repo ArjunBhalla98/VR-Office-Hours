@@ -64,7 +64,6 @@ public class Pen : MonoBehaviour
         //   { 
 
         //}
-        //float tipHeight = m_PenTip.transform.localScale.y;
 
         Vector3 tip = m_PenTip.transform.position;
 
@@ -87,7 +86,7 @@ public class Pen : MonoBehaviour
 
 			transform.position = new Vector3(transform.position.x, transform.position.y, lastZPosition);
 
-            this._whiteboard = _touch.collider.GetComponent<Whiteboard>();
+            this._whiteboard = _touch.collider.gameObject.GetComponent<Whiteboard>();
             RealtimeTransform whiteboardTransform = _whiteboard.GetComponent<RealtimeTransform>();
             whiteboardTransform.RequestOwnership();
 

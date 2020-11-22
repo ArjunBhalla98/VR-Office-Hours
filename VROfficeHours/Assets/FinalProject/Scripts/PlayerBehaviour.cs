@@ -20,7 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
     float respawnTimer;
     float penRespawnTimer;
 
-    const string m_PrefabName = "Whiteboard";
+    const string m_PrefabName = "WhiteboardPrefab";
     const string m_PenPrefabName = "sharpiePrefab";
 
     Realtime _realtime;
