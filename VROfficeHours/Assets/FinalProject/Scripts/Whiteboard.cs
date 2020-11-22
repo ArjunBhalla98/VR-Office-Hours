@@ -56,15 +56,11 @@ public class Whiteboard : MonoBehaviour
 
         //Get the size of the original texture of the board
         //Texture2D originTexture = (Texture2D)this.GetComponent<MeshRenderer>().material.mainTexture;
-        Debug.Log("============");
-        //Debug.Log(transform.localScale);
-        //Debug.Log(this.GetComponent<Renderer>().material);
 
         //TODO: could change the size of the board
         _localScale = transform.localScale;
         _textureWidth = (int)(_localScale.x * 1000); 
         _textureHeight = (int)(_localScale.y * 1000); 
-        Debug.Log(_textureWidth);
 
         //Set current texture
         _texture = new Texture2D(_textureWidth, _textureHeight, TextureFormat.RGBA32, false, true);

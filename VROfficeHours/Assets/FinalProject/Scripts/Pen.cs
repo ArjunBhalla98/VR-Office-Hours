@@ -67,7 +67,6 @@ public class Pen : MonoBehaviour
         //float tipHeight = m_PenTip.transform.localScale.y;
 
         Vector3 tip = m_PenTip.transform.position;
-        //Debug.DrawRay(tip, transform.forward, Color.green);
 
         // Start by figuring out which hand we're tracking
         XRNode node = _hand == Hand.LeftHand ? XRNode.LeftHand : XRNode.RightHand;
@@ -99,6 +98,7 @@ public class Pen : MonoBehaviour
             OVRInput.SetControllerVibration(1f, 0.1f, OVRInput.Controller.RTouch);
 
 			_whiteboard.SetTouchPositon(_touch.textureCoord.x, _touch.textureCoord.y);
+
 			//Current pen color
 			_whiteboard.SetColor(new Color32(0, 255, 0, 255));
 			_whiteboard.IsDrawing = true;
