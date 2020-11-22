@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/assignments/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/src/main/res/values/styles.xml",
+                    "source": "/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/assignments/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "5,2,7",
                         "startColumns": "0,0,0",
@@ -23,24 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/src/main/res/values/ids.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "46",
-                        "endOffsets": "97"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "45",
-                        "endOffsets": "96"
-                    }
-                },
-                {
-                    "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/src/main/res/values/strings.xml",
+                    "source": "/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/assignments/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "2,2",
@@ -54,6 +37,23 @@
                         "startOffsets": "101,154",
                         "endColumns": "52,67",
                         "endOffsets": "149,217"
+                    }
+                },
+                {
+                    "source": "/Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS 5650 VR/assignments/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/src/main/res/values/ids.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "46",
+                        "endOffsets": "97"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "45",
+                        "endOffsets": "96"
                     }
                 }
             ]

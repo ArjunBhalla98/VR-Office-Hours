@@ -16,7 +16,7 @@ public class Pen : MonoBehaviour
     [SerializeField] private Realtime _realtime = null;
 
     // Prefab to instantiate when we draw a new brush stroke
-    [SerializeField] private GameObject _brushStrokePrefab = null;
+    //[SerializeField] private GameObject _brushStrokePrefab = null;
 
     // Which hand should this brush instance track?
     private enum Hand { LeftHand, RightHand };

@@ -41,7 +41,6 @@ ScriptsOnlyBuild:
     - Normal.Realtime.RealtimeAvatarVoice
     Normcore.Editor.dll:
     - Normal.Internal.DirectoryFinder
-    - Normal.Realtime.Serialization.ModelEditor
     - Normal.Utility.InternalSettings
     Normcore.dll:
     - Normal.NormcoreAppSettings
@@ -566,7 +565,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarSDKManager
   - hash:
       serializedVersion: 2
-      Hash: 7cb0c47d265e9accb90c57ee2bacb12a
+      Hash: 4fb8481ee51bda8fbe62b592080121d3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pen
@@ -1982,7 +1981,7 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
-      Hash: 9fba540c4d54b08b4afbeb7bf1b8f882
+      Hash: d6330b87639ee12ee76690548c5dce07
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerBehaviour
@@ -2139,4 +2138,5 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/FinalProject/Scenes/OfficeHoursRoom.unity
-  playerPath: /Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours/test.apk
+  playerPath: /Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS
+    5650 VR/assignments/project-2020-g-06/VROfficeHours/build.apk

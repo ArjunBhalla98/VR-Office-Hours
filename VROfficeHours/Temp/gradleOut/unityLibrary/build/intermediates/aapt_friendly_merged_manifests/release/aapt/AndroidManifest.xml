@@ -9,7 +9,7 @@
 
     <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="29" />
+        android:targetSdkVersion="28" />
 
     <uses-feature android:glEsVersion="0x00020000" />
 
@@ -71,7 +71,7 @@
             android:value="False" />
         <meta-data
             android:name="unity.build-id"
-            android:value="a0f8f1d6-18b2-405c-88be-8f04c52b8a46" />
+            android:value="e63e864d-6259-416b-b234-878ae3c83b35" />
         <meta-data
             android:name="com.samsung.android.vr.application.mode"
             android:value="vr_only" />
