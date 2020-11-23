@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Normal.Realtime;
 
 public class Whiteboard : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Whiteboard : MonoBehaviour
     public float lerp = 0.001f;
 
     GameObject playerAnchor;
+    RealtimeTransform realtimeTransform; 
     public bool xAxisSnap = false;
     // Texture for writing on the board
     private Texture2D _texture;
@@ -52,6 +54,7 @@ public class Whiteboard : MonoBehaviour
         m_GrabOffset = GameObject.Find("WhiteboardGrabOffset").transform;
         m_GrabState.snapOffset = m_GrabOffset;
         playerAnchor = GameObject.Find("CenterEyeAnchor");
+        realtimeTransform = GetComponent<RealtimeTransform>();
         // TODO: attempt to get the texture from the meshrenderer,
         // right now it's non-existant and the dimension of the texture is hardcoded
         // i.e. our board is 1.98 x 1.08 -> 1980x1080 right now
@@ -86,6 +89,7 @@ public class Whiteboard : MonoBehaviour
         }
         else if ((!m_GrabState.isGrabbed && isGrabbed))
         {
+            realtimeTransform.RequestOwnership();
             // Snap to axis calculations
             transform.LookAt(playerAnchor.transform);
             Vector3 currentRotationEuler = transform.eulerAngles;
