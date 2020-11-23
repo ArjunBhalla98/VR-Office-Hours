@@ -15,8 +15,10 @@ public class Whiteboard : MonoBehaviour
     // it is necessary to interpolate between two points,
     // and LERP is the interpolation coefficient
     [Range(0, 1)]
-    public float lerp = 0.01f;
+    public float lerp = 0.001f;
 
+    GameObject playerAnchor;
+    public bool xAxisSnap = false;
     // Texture for writing on the board
     private Texture2D _texture;
     //The position of the brush is mapped to the UV coordinates of the board texture
@@ -49,7 +51,7 @@ public class Whiteboard : MonoBehaviour
         m_GrabState = GetComponent<OVRGrabbable>();
         m_GrabOffset = GameObject.Find("WhiteboardGrabOffset").transform;
         m_GrabState.snapOffset = m_GrabOffset;
-
+        playerAnchor = GameObject.Find("CenterEyeAnchor");
         // TODO: attempt to get the texture from the meshrenderer,
         // right now it's non-existant and the dimension of the texture is hardcoded
         // i.e. our board is 1.98 x 1.08 -> 1980x1080 right now
@@ -84,6 +86,35 @@ public class Whiteboard : MonoBehaviour
         }
         else if ((!m_GrabState.isGrabbed && isGrabbed))
         {
+            // Snap to axis calculations
+            transform.LookAt(playerAnchor.transform);
+            Vector3 currentRotationEuler = transform.eulerAngles;
+            float xStraightSnapAngle = Mathf.Abs(currentRotationEuler.y - 90) % 360;
+            float xReverseSnapAngle = Mathf.Abs(currentRotationEuler.y + 90) % 360;
+            float zStraightSnapAngle = Mathf.Abs(currentRotationEuler.y) % 360;
+            float zReverseSnapAngle = Mathf.Abs(currentRotationEuler.y + 180) % 360;
+            float minAngle = Mathf.Min(xStraightSnapAngle, xReverseSnapAngle, zStraightSnapAngle, zReverseSnapAngle);
+
+            if (minAngle == xStraightSnapAngle)
+            {
+                transform.rotation = Quaternion.Euler(0, -90, 0);
+                xAxisSnap = true;
+            }
+            else if (minAngle == xReverseSnapAngle)
+            {
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+                xAxisSnap = true;
+            }
+            else if (minAngle == zStraightSnapAngle)
+            {
+                transform.rotation = Quaternion.Euler(0, -180, 0);
+                xAxisSnap = false;
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                xAxisSnap = false;
+	        }
             isGrabbed = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }

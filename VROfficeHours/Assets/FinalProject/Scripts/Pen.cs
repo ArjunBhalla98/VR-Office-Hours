@@ -18,6 +18,7 @@ public class Pen : MonoBehaviour
     [SerializeField] private Hand _hand = Hand.RightHand;
     [SerializeField]
     GameObject rightHand;
+    GameObject penSnapOrientation;
 
 
     // Used to keep track of the current brush tip position and the actively drawing brush stroke
@@ -39,10 +40,11 @@ public class Pen : MonoBehaviour
     public Color32 _penColor;
 
     // For making sure the pen doesn't go through the board
-    float lastZPosition; // obsolete hold on
+    float lastDepthPosition; // obsolete hold on
     Vector3 distanceToPen;
     //LineRenderer lr;
     Rigidbody rb;
+    OVRGrabbable m_GrabState;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +53,10 @@ public class Pen : MonoBehaviour
 
         _whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
         rb = GetComponent<Rigidbody>();
+        m_GrabState = GetComponent<OVRGrabbable>();
         _isTouching = false;
+        penSnapOrientation = GameObject.Find("PenSnap");
+        m_GrabState.snapOffset = penSnapOrientation.transform;
     }
 
     // Update is called once per frame
@@ -79,16 +84,24 @@ public class Pen : MonoBehaviour
             if (!(_touch.collider.gameObject.CompareTag("Whiteboard")))
                 return;
 
-            if (!_isTouching)
-            {
-                lastZPosition = transform.position.z;
-	        }
-
-            transform.position = new Vector3(transform.position.x, transform.position.y, lastZPosition);
 
             _whiteboard = _touch.collider.gameObject.GetComponent<Whiteboard>();
             RealtimeTransform whiteboardTransform = _whiteboard.GetComponent<RealtimeTransform>();
             whiteboardTransform.RequestOwnership();
+
+            if (!_isTouching)
+            {
+                lastDepthPosition = _whiteboard.xAxisSnap ? transform.position.x : transform.position.z;
+	        }
+
+            if (_whiteboard.xAxisSnap)
+            {
+                transform.position = new Vector3(lastDepthPosition, transform.position.y, transform.position.z);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, lastDepthPosition);
+	        }
 
             _isTouching = true;
 
@@ -99,14 +112,14 @@ public class Pen : MonoBehaviour
 			_whiteboard.SetTouchPositon(_touch.textureCoord.x, _touch.textureCoord.y);
 
 			//Current pen color
-			_whiteboard.SetColor(new Color32(0, 255, 0, 255));
+			_whiteboard.SetColor(new Color32(0, 190, 0, 255));
 			_whiteboard.IsDrawing = true;
         }
         else
         {
             //if (Physics.Raycast(transform.position - 0.1f * transform.forward, transform.forward, out _stillInRange, 0.1f) && _isTouching)
             //{
-            //    transform.position = new Vector3(transform.position.x, transform.position.y, lastZPosition);
+            //    transform.position = new Vector3(transform.position.x, transform.position.y, lastDepthPosition);
             //}
             //else
             //{ 
