@@ -22,17 +22,20 @@ public class Whiteboard : MonoBehaviour
     RealtimeTransform realtimeTransform; 
     public bool xAxisSnap = false;
     // Texture for writing on the board
-    private Texture2D _texture;
+    public Texture2D _texture;
+    public Texture2D previousTexture;
     //The position of the brush is mapped to the UV coordinates of the board texture
     private Vector2 _paintPos;
     private bool _isTouching = false;
+
+    public List<List<int>> previousWrittenPixels = new List<List<int>>();
 
     //Where the brush is when you leave 
     private int _lastX, _lastY;
 
     //The size of the color block represented by the brush
-    private int _painterTipsWidth = 5;
-    private int _painterTipsHeight = 5;
+    public int _painterTipsWidth = 5;
+    public int _painterTipsHeight = 5;
 
     //The size of the background picture of the current palette
     private Vector3 _localScale;
@@ -43,6 +46,7 @@ public class Whiteboard : MonoBehaviour
 
     //The color of the brush
     private Color32[] _color;
+    public Color32[] _colorWhite; // erase colour
 
 
     // Start is called before the first frame update
@@ -69,12 +73,16 @@ public class Whiteboard : MonoBehaviour
 
         //Set current texture
         _texture = new Texture2D(_textureWidth, _textureHeight, TextureFormat.RGBA32, false, true);
+         _colorWhite = Enumerable.Repeat<Color32>(new Color32(255, 255, 255, 255), _painterTipsWidth * _painterTipsHeight).ToArray<Color32>();
+        _texture.SetPixels32(0, 0, _textureWidth, _textureHeight, _colorWhite);
         //_texture.SetPixels32(originTexture.GetPixels32());
         _texture.Apply();
 
         //Assign to whiteboard
-        GetComponent<MeshRenderer>().material.mainTexture = _texture;
-
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer.material.mainTexture = _texture;
+        previousTexture = _texture;
+                
         //Initialize brush color
         _color = Enumerable.Repeat<Color32>(new Color32(255, 0, 0, 255), _painterTipsWidth * _painterTipsHeight).ToArray<Color32>();
     }
@@ -129,6 +137,7 @@ public class Whiteboard : MonoBehaviour
             _localScale = transform.localScale;
         }
 
+
     }
 
     private void LateUpdate()
@@ -149,6 +158,7 @@ public class Whiteboard : MonoBehaviour
                 {
                     int x = (int)Mathf.Lerp((float)_lastX, (float)texPosX, lerp);
                     int y = (int)Mathf.Lerp((float)_lastY, (float)texPosY, lerp);
+                    previousWrittenPixels.Add(new List<int> { x, y });
                     _texture.SetPixels32(x, y, _painterTipsWidth, _painterTipsHeight, _color);
                 }
             }

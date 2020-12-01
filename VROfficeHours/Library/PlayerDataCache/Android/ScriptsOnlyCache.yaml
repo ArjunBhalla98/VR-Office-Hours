@@ -871,7 +871,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 60f2d6aed41e609721583b31b7b13e7c
+      Hash: 662e7c5eb0f821c7139748fcb3ebe24e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Whiteboard

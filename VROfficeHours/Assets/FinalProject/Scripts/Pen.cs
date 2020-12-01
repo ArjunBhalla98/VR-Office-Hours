@@ -62,23 +62,6 @@ public class Pen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //lr.SetPosition(0, transform.position);
-        //lr.SetPosition(1, transform.position + transform.forward);
-
-        //   if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward))
-        //   { 
-
-        //}
-
-        Vector3 tip = m_PenTip.transform.position;
-
-        // Start by figuring out which hand we're tracking
-        XRNode node = _hand == Hand.LeftHand ? XRNode.LeftHand : XRNode.RightHand;
-        string trigger = _hand == Hand.LeftHand ? "Left Trigger" : "Right Trigger";
-
-        // Figure out if the trigger is pressed or not
-        //bool triggerPressed = Input.GetAxisRaw(trigger) > 0.1f;
-
         if (Physics.Raycast(transform.position, transform.forward, out _touch, raycastLength))
         {
             if (!(_touch.collider.gameObject.CompareTag("Whiteboard")))
@@ -92,7 +75,9 @@ public class Pen : MonoBehaviour
             if (!_isTouching)
             {
                 lastDepthPosition = _whiteboard.xAxisSnap ? transform.position.x : transform.position.z;
-	        }
+                _whiteboard.previousTexture = (Texture2D) _touch.collider.gameObject.GetComponent<MeshRenderer>().material.mainTexture;
+                _whiteboard.previousWrittenPixels = new List<List<int>>();
+            }
 
             if (_whiteboard.xAxisSnap)
             {
@@ -111,7 +96,7 @@ public class Pen : MonoBehaviour
 
 			_whiteboard.SetTouchPositon(_touch.textureCoord.x, _touch.textureCoord.y);
 
-			//Current pen color
+            //Current pen color
 			_whiteboard.SetColor(new Color32(0, 190, 0, 255));
 			_whiteboard.IsDrawing = true;
         }
@@ -131,8 +116,6 @@ public class Pen : MonoBehaviour
 	        //}
 
         }
-
-        //UpdateDrawBrush(); // Using normcore ribben-like brush texture
     }
 
     /// <summary>
