@@ -41,6 +41,7 @@ ScriptsOnlyBuild:
     - Normal.Realtime.RealtimeAvatarVoice
     Normcore.Editor.dll:
     - Normal.Internal.DirectoryFinder
+    - Normal.Realtime.Serialization.ModelEditor
     - Normal.Utility.InternalSettings
     Normcore.dll:
     - Normal.NormcoreAppSettings

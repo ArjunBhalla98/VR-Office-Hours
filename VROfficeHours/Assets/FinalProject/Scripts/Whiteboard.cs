@@ -34,8 +34,8 @@ public class Whiteboard : MonoBehaviour
     private int _lastX, _lastY;
 
     //The size of the color block represented by the brush
-    public int _painterTipsWidth = 5;
-    public int _painterTipsHeight = 5;
+    public int _painterTipsWidth;
+    public int _painterTipsHeight;
 
     //The size of the background picture of the current palette
     private Vector3 _localScale;
@@ -48,10 +48,13 @@ public class Whiteboard : MonoBehaviour
     private Color32[] _color;
     public Color32[] _colorWhite; // erase colour
 
+    public static int counterSize = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        _painterTipsWidth = 5;
+        _painterTipsHeight = 5;
         // Grabbing
         rb = GetComponent<Rigidbody>();
         m_GrabState = GetComponent<OVRGrabbable>();
@@ -142,6 +145,37 @@ public class Whiteboard : MonoBehaviour
 
     private void LateUpdate()
     {
+        // returns true if the left index finger trigger has been pressed more than halfway.
+        // (Interpret the trigger as a button).
+        if(OVRInput.Get(OVRInput.RawButton.LIndexTrigger))
+        {
+            SwitchSize();
+        }
+
+        if(counterSize % 4 == 0) 
+        {
+            _painterTipsWidth = 5;
+            _painterTipsHeight = 5;
+        }
+
+        else if(counterSize % 4 == 1) 
+        {
+            _painterTipsWidth = 10;
+            _painterTipsHeight = 10;
+        }
+
+        else if(counterSize % 4 == 2) 
+        {
+            _painterTipsWidth = 20;
+            _painterTipsHeight = 20;
+        }
+
+        else if(counterSize % 4 == 3) 
+        {
+            _painterTipsWidth = 30;
+            _painterTipsHeight = 30;
+        }
+
         //Calculate the starting point of the color block represented by the current brush
         int texPosX = (int)(_paintPos.x * (float)_textureWidth - (float)(_painterTipsWidth / 2));
         int texPosY = (int)(_paintPos.y * (float)_textureHeight - (float)(_painterTipsHeight / 2));
@@ -172,7 +206,11 @@ public class Whiteboard : MonoBehaviour
         }
     }
 
-
+    public int SwitchSize()
+    {
+        counterSize++;
+        return counterSize;
+    }
     ///////// Texture mapping for writing
 
     /// <summary>
