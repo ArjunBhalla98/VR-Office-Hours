@@ -48,7 +48,7 @@ public class Whiteboard : MonoBehaviour
     private Color32[] _color;
     public Color32[] _colorWhite; // erase colour
 
-    public static int counterSize = 0;
+    int counterSize = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -76,8 +76,8 @@ public class Whiteboard : MonoBehaviour
 
         //Set current texture
         _texture = new Texture2D(_textureWidth, _textureHeight, TextureFormat.RGBA32, false, true);
-         _colorWhite = Enumerable.Repeat<Color32>(new Color32(255, 255, 255, 255), _painterTipsWidth * _painterTipsHeight).ToArray<Color32>();
-        _texture.SetPixels32(0, 0, _textureWidth, _textureHeight, _colorWhite);
+        // _colorWhite = Enumerable.Repeat<Color32>(new Color32(255, 255, 255, 255), _painterTipsWidth * _painterTipsHeight).ToArray<Color32>();
+        //_texture.SetPixels32(0, 0, _textureWidth, _textureHeight, _colorWhite);
         //_texture.SetPixels32(originTexture.GetPixels32());
         _texture.Apply();
 
@@ -190,8 +190,8 @@ public class Whiteboard : MonoBehaviour
                 int lerpCount = (int)(1 / lerp);
                 for (int i = 0; i <= lerpCount; i++)
                 {
-                    int x = (int)Mathf.Lerp((float)_lastX, (float)texPosX, lerp);
-                    int y = (int)Mathf.Lerp((float)_lastY, (float)texPosY, lerp);
+                    int x = (int)Mathf.Lerp(_lastX, texPosX, lerp * i);
+                    int y = (int)Mathf.Lerp(_lastY, texPosY, lerp * i);
                     previousWrittenPixels.Add(new List<int> { x, y });
                     _texture.SetPixels32(x, y, _painterTipsWidth, _painterTipsHeight, _color);
                 }

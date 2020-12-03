@@ -41,7 +41,6 @@ ScriptsOnlyBuild:
     - Normal.Realtime.RealtimeAvatarVoice
     Normcore.Editor.dll:
     - Normal.Internal.DirectoryFinder
-    - Normal.Realtime.Serialization.ModelEditor
     - Normal.Utility.InternalSettings
     Normcore.dll:
     - Normal.NormcoreAppSettings
@@ -566,7 +565,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarSDKManager
   - hash:
       serializedVersion: 2
-      Hash: 9588f68855d48339f905825b9f403fcd
+      Hash: 23b1da09731a292f76f278c25b6db427
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pen
@@ -2139,4 +2138,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/FinalProject/Scenes/OfficeHoursRoom.unity
-  playerPath: /Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/color2.apk
+  playerPath: /Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours/test.apk

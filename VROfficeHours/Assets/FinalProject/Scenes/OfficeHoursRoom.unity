@@ -2775,6 +2775,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022708322}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1051274237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2599048451083484706, guid: 9735d2e8ffcba49519f40a126bf67061,
+    type: 3}
+  m_PrefabInstance: {fileID: 8076379759954645831}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1092461250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3842,6 +3848,26 @@ PrefabInstance:
       propertyPath: rightHand
       value: 
       objectReference: {fileID: 799940637}
+    - target: {fileID: 339388381, guid: 9735d2e8ffcba49519f40a126bf67061, type: 3}
+      propertyPath: m_PenTip
+      value: 
+      objectReference: {fileID: 1051274237}
+    - target: {fileID: 339388381, guid: 9735d2e8ffcba49519f40a126bf67061, type: 3}
+      propertyPath: PenGreen
+      value: 
+      objectReference: {fileID: 2100000, guid: e1f4db843061440928f11ea39d3dee74, type: 2}
+    - target: {fileID: 339388381, guid: 9735d2e8ffcba49519f40a126bf67061, type: 3}
+      propertyPath: PenBlue
+      value: 
+      objectReference: {fileID: 2100000, guid: e04e9200cb6674da492882b5a8c25929, type: 2}
+    - target: {fileID: 339388381, guid: 9735d2e8ffcba49519f40a126bf67061, type: 3}
+      propertyPath: PenRed
+      value: 
+      objectReference: {fileID: 2100000, guid: 59e8ae783fb1446b59d0aa3b8e789ed2, type: 2}
+    - target: {fileID: 339388381, guid: 9735d2e8ffcba49519f40a126bf67061, type: 3}
+      propertyPath: PenYellow
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e20622b529334bacada58a65294e7f3, type: 2}
     - target: {fileID: 603452450672630632, guid: 9735d2e8ffcba49519f40a126bf67061,
         type: 3}
       propertyPath: m_snapOffset

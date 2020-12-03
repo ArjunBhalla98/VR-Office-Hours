@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/proj/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v28/values-v28.xml",
+            "outputFile": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "/Users/williamzhang/Desktop/Cornell/Fall2020/ARVR/proj/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/src/main/res/values-v28/styles.xml",
+                    "source": "/Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours/Temp/gradleOut/launcher/src/main/res/values-v28/styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "2",

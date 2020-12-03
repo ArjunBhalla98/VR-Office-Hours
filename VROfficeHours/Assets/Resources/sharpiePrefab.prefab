@@ -109,13 +109,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f601034f1b74e8c9c7c0dc3283d1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PenTip: {fileID: 8574786072496853498}
-  _realtime: {fileID: 0}
+  m_PenTip: {fileID: 2599048451083484706}
   _hand: 1
+  rightHand: {fileID: 0}
+  PenGreen: {fileID: 2100000, guid: e1f4db843061440928f11ea39d3dee74, type: 2}
+  PenBlue: {fileID: 2100000, guid: e04e9200cb6674da492882b5a8c25929, type: 2}
+  PenYellow: {fileID: 2100000, guid: 6e20622b529334bacada58a65294e7f3, type: 2}
+  PenRed: {fileID: 2100000, guid: 59e8ae783fb1446b59d0aa3b8e789ed2, type: 2}
   _whiteboard: {fileID: 0}
-  _penColor:
-    serializedVersion: 2
-    rgba: 0
 --- !u!114 &339388382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +216,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5638717577077479268, guid: 8a6ed86eafffb4494bb6362a055299a6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8397979131201140102, guid: 8a6ed86eafffb4494bb6362a055299a6,
         type: 3}
       propertyPath: m_Name
@@ -239,6 +245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124334964270499091, guid: 8a6ed86eafffb4494bb6362a055299a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9205442481545768764, guid: 8a6ed86eafffb4494bb6362a055299a6,
         type: 3}
@@ -298,6 +309,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8314937424637510386, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
     - {fileID: 1343164286, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
+    - {fileID: 5638717577077479268, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8a6ed86eafffb4494bb6362a055299a6, type: 3}
 --- !u!1 &8994947707307188591 stripped
 GameObject:
@@ -305,9 +317,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 603452452013954281}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8574786072496853498 stripped
+--- !u!1 &2599048451083484706 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 9124334964270499091, guid: 8a6ed86eafffb4494bb6362a055299a6,
+  m_CorrespondingSourceObject: {fileID: 3192568372466117323, guid: 8a6ed86eafffb4494bb6362a055299a6,
     type: 3}
   m_PrefabInstance: {fileID: 603452452013954281}
   m_PrefabAsset: {fileID: 0}
