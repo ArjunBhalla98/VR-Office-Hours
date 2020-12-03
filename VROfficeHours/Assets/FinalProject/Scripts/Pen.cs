@@ -46,6 +46,9 @@ public class Pen : MonoBehaviour
     Rigidbody rb;
     OVRGrabbable m_GrabState;
 
+    public static int counter = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +65,33 @@ public class Pen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // returns true if the “Y” button was released this frame.
+        if(OVRInput.GetUp(OVRInput.RawButton.Y))
+        {
+            Switch();
+        }
+
+        if(counter % 4 == 0) 
+        {
+            _whiteboard.SetColor(new Color32(0, 190, 0, 255));
+        }
+
+        else if(counter % 4 == 1) 
+        {
+            _whiteboard.SetColor(new Color32(255, 0, 0, 255));
+        }
+
+        else if(counter % 4 == 2) 
+        {
+            _whiteboard.SetColor(new Color32(0, 0, 255, 255));
+        }
+
+        else if(counter % 4 == 3) 
+        {
+            _whiteboard.SetColor(new Color32(255, 255, 0, 255));
+        }
+
+
         if (Physics.Raycast(transform.position, transform.forward, out _touch, raycastLength))
         {
             if (!(_touch.collider.gameObject.CompareTag("Whiteboard")))
@@ -97,8 +127,7 @@ public class Pen : MonoBehaviour
 			_whiteboard.SetTouchPositon(_touch.textureCoord.x, _touch.textureCoord.y);
 
             //Current pen color
-			_whiteboard.SetColor(new Color32(0, 190, 0, 255));
-			_whiteboard.IsDrawing = true;
+            _whiteboard.IsDrawing = true;
         }
         else
         {
@@ -117,6 +146,13 @@ public class Pen : MonoBehaviour
 
         }
     }
+
+    public int Switch()
+    {
+        counter++;
+        return counter;
+    }
+
 
     /// <summary>
     /// Modification of Normcore drawing by enabling drawing from the pentip

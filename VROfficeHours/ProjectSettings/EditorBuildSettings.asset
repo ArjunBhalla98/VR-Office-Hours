@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/FinalProject/Scenes/OfficeHoursRoom.unity
+    guid: 71411ad91a1a5c9428af58c817b04842
   m_configObjects: {}
