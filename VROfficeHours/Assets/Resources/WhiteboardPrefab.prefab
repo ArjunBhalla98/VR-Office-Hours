@@ -29,7 +29,7 @@ PrefabInstance:
     - target: {fileID: 3466316847594568338, guid: da2b57a7e192a48578076c1cd84c40dc,
         type: 3}
       propertyPath: lerp
-      value: 0.025
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3466316847594568339, guid: da2b57a7e192a48578076c1cd84c40dc,
         type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Normal.Realtime;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -10,6 +11,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     [SerializeField]
     Transform m_PlayerBase;
+
+    [SerializeField]
+    Text m_NameTagField;
+
+    public string PlayerName = "Default";
 
     public float m_WhiteboardSpawnOffset;
     public float m_penSpawnOffset;
@@ -31,6 +37,7 @@ public class PlayerBehaviour : MonoBehaviour
         respawnTimer = k_respawnTime;
         penRespawnTimer = k_respawnTime;
         _realtime = GetComponent<Realtime>();
+        m_NameTagField.text = PlayerName;
     }
 
     // Update is called once per frame

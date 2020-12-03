@@ -31,22 +31,6 @@ public class HandLine : MonoBehaviour
                 {
                     Realtime.Destroy(obj);
                 }
-                else if (OVRInput.Get(OVRInput.Button.Four))
-                {
-                    //Texture2D oldTexture = obj.GetComponent<Whiteboard>().previousTexture;
-                    //obj.GetComponent<MeshRenderer>().material.mainTexture = oldTexture;
-                    //oldTexture.Apply();
-                    Whiteboard wb = obj.GetComponent<Whiteboard>();
-                    List<List<int>> prevPixels = wb.previousWrittenPixels;
-                    MeshRenderer whiteboardMr = obj.GetComponent<MeshRenderer>();
-
-		            foreach (List<int> posList in prevPixels)
-                    {
-                        wb._texture.SetPixels32(posList[0], posList[1], wb._painterTipsWidth + 2, wb._painterTipsHeight + 2, wb._colorWhite);
-		            }
-
-                    wb._texture.Apply();
-		        }
 	        }
 	    }
     }

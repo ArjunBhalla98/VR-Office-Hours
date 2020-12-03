@@ -33,8 +33,8 @@ public class Pen : MonoBehaviour
 
     GameObject penSnapOrientation;
 
-    const float hapticFeedbackLength = 0.1f;
-    float hapticFeedbackTimeLeft = 0.1f;
+    const float hapticFeedbackLength = 0.15f;
+    float hapticFeedbackTimeLeft = hapticFeedbackLength;
     // Used to keep track of the current brush tip position and the actively drawing brush stroke
     private Vector3 _handPosition;
     private Quaternion _handRotation;
@@ -103,7 +103,7 @@ public class Pen : MonoBehaviour
             {
 			    // Haptic feedback for writing, vibrates when the controller
 			    // touches the Whiteboard for the first time: per Prof. Haraldsson feedback
-			    OVRInput.SetControllerVibration(0.5f, 0.1f, OVRInput.Controller.RTouch);
+			    OVRInput.SetControllerVibration(0.5f, 0.35f, OVRInput.Controller.RTouch);
                 hapticFeedbackTimeLeft = hapticFeedbackLength;
                 _whiteboard.SetColor(currentPenColour);
                 lastDepthPosition = _whiteboard.xAxisSnap ? transform.position.x : transform.position.z;
@@ -139,6 +139,7 @@ public class Pen : MonoBehaviour
         }
         else
         {
+			OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
 		    _isTouching = false;
             _whiteboard.IsDrawing = false;
         }

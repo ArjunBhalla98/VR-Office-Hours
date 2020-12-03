@@ -53,8 +53,8 @@ public class Whiteboard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _painterTipsWidth = 5;
-        _painterTipsHeight = 5;
+        _painterTipsWidth = 4;
+        _painterTipsHeight = 4;
         // Grabbing
         rb = GetComponent<Rigidbody>();
         m_GrabState = GetComponent<OVRGrabbable>();
@@ -145,36 +145,34 @@ public class Whiteboard : MonoBehaviour
 
     private void LateUpdate()
     {
-        // returns true if the left index finger trigger has been pressed more than halfway.
-        // (Interpret the trigger as a button).
-        if(OVRInput.Get(OVRInput.RawButton.LIndexTrigger))
-        {
-            SwitchSize();
-        }
+        //if(OVRInput.Get(OVRInput.RawButton.LIndexTrigger))
+        //{
+        //    SwitchSize();
+        //}
 
-        if(counterSize % 4 == 0) 
-        {
-            _painterTipsWidth = 5;
-            _painterTipsHeight = 5;
-        }
+        //if(counterSize % 4 == 0) 
+        //{
+        //    _painterTipsWidth = 5;
+        //    _painterTipsHeight = 5;
+        //}
 
-        else if(counterSize % 4 == 1) 
-        {
-            _painterTipsWidth = 10;
-            _painterTipsHeight = 10;
-        }
+        //else if(counterSize % 4 == 1) 
+        //{
+        //    _painterTipsWidth = 10;
+        //    _painterTipsHeight = 10;
+        //}
 
-        else if(counterSize % 4 == 2) 
-        {
-            _painterTipsWidth = 20;
-            _painterTipsHeight = 20;
-        }
+        //else if(counterSize % 4 == 2) 
+        //{
+        //    _painterTipsWidth = 20;
+        //    _painterTipsHeight = 20;
+        //}
 
-        else if(counterSize % 4 == 3) 
-        {
-            _painterTipsWidth = 30;
-            _painterTipsHeight = 30;
-        }
+        //else if(counterSize % 4 == 3) 
+        //{
+        //    _painterTipsWidth = 30;
+        //    _painterTipsHeight = 30;
+        //}
 
         //Calculate the starting point of the color block represented by the current brush
         int texPosX = (int)(_paintPos.x * (float)_textureWidth - (float)(_painterTipsWidth / 2));
