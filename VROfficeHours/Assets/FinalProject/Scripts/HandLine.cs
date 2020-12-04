@@ -1,17 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Normal.Realtime;
 
 public class HandLine : MonoBehaviour
 {
+    [SerializeField]
+    Text m_NameTag;
+
+    [SerializeField]
+    QueueBoard QueueBoard; 
+
+    string name;
+    bool isQueuePressed = false;
+    const float maxResetTime = 1f;
+    float currentResetTime = maxResetTime;
     LineRenderer lr;
     float lineDistance = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        lr = GetComponent<LineRenderer>();        
+        lr = GetComponent<LineRenderer>();
+        name = m_NameTag.text;
     }
 
     // Update is called once per frame
@@ -31,7 +43,40 @@ public class HandLine : MonoBehaviour
                 {
                     Realtime.Destroy(obj);
                 }
+            }
+            else if (obj.CompareTag("OHQ"))
+            {
+                obj.GetComponent<RealtimeTransform>().RequestOwnership();
+                QueueBoard = obj.GetComponent<QueueBoard>();
+                QueueBoard.isHighlighted = true;
+
+                if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && !isQueuePressed)
+                {
+                    QueueBoard.AddStudent(name);
+                    isQueuePressed = true;
+                    
+                }
+                else if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && !isQueuePressed)
+                {
+                    QueueBoard.RemoveStudent();
+                    isQueuePressed = true;
+		        }
+            }
+			else
+			{
+			    QueueBoard.isHighlighted = false;
+			}
+		}
+
+        if (isQueuePressed)
+        {
+            currentResetTime -= Time.deltaTime;
+            if (currentResetTime < 0)
+            {
+                isQueuePressed = false;
+                currentResetTime = maxResetTime;
 	        }
 	    }
+
     }
 }

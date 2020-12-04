@@ -16,6 +16,7 @@ public class PlayerBehaviour : MonoBehaviour
     Text m_NameTagField;
 
     public string PlayerName = "Default";
+    bool playerNameUpdated = false;
 
     public float m_WhiteboardSpawnOffset;
     public float m_penSpawnOffset;
@@ -37,12 +38,18 @@ public class PlayerBehaviour : MonoBehaviour
         respawnTimer = k_respawnTime;
         penRespawnTimer = k_respawnTime;
         _realtime = GetComponent<Realtime>();
-        m_NameTagField.text = PlayerName;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!playerNameUpdated)
+        {
+            m_NameTagField = GameObject.Find("Nametag").GetComponent<Text>();
+			m_NameTagField.text = PlayerName;
+            playerNameUpdated = true;
+	    }
+
         if (OVRInput.Get(OVRInput.Button.One) && !isSpawned)
         {
             GameObject instantiatedWhiteboard = Realtime.Instantiate(m_PrefabName,
