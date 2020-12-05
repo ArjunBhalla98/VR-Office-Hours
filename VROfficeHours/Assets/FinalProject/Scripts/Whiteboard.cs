@@ -49,6 +49,7 @@ public class Whiteboard : MonoBehaviour
     public Color32[] _colorWhite; // erase colour
 
     int counterSize = 0;
+    bool isInstantiated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +89,9 @@ public class Whiteboard : MonoBehaviour
                 
         //Initialize brush color
         _color = Enumerable.Repeat<Color32>(new Color32(255, 0, 0, 255), _painterTipsWidth * _painterTipsHeight).ToArray<Color32>();
+
+        // Reposition whiteboard, fix glitch
+        SnapWhiteboard();
     }
 
     // Update is called once per frame
@@ -100,38 +104,7 @@ public class Whiteboard : MonoBehaviour
         }
         else if ((!m_GrabState.isGrabbed && isGrabbed))
         {
-            realtimeTransform.RequestOwnership();
-            // Snap to axis calculations
-            transform.LookAt(playerAnchor.transform);
-            Vector3 currentRotationEuler = transform.eulerAngles;
-            float xStraightSnapAngle = Mathf.Abs(currentRotationEuler.y - 90) % 360;
-            float xReverseSnapAngle = Mathf.Abs(currentRotationEuler.y + 90) % 360;
-            float zStraightSnapAngle = Mathf.Abs(currentRotationEuler.y) % 360;
-            float zReverseSnapAngle = Mathf.Abs(currentRotationEuler.y + 180) % 360;
-            float minAngle = Mathf.Min(xStraightSnapAngle, xReverseSnapAngle, zStraightSnapAngle, zReverseSnapAngle);
-
-            if (minAngle == xStraightSnapAngle)
-            {
-                transform.rotation = Quaternion.Euler(0, -90, 0);
-                xAxisSnap = true;
-            }
-            else if (minAngle == xReverseSnapAngle)
-            {
-                transform.rotation = Quaternion.Euler(0, 90, 0);
-                xAxisSnap = true;
-            }
-            else if (minAngle == zStraightSnapAngle)
-            {
-                transform.rotation = Quaternion.Euler(0, -180, 0);
-                xAxisSnap = false;
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-                xAxisSnap = false;
-	        }
-            isGrabbed = false;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            SnapWhiteboard();
         }
 
         // If whiteboard is resized
@@ -142,6 +115,42 @@ public class Whiteboard : MonoBehaviour
 
 
     }
+
+    void SnapWhiteboard()
+    { 
+	    realtimeTransform.RequestOwnership();
+	    // Snap to axis calculations
+	    transform.LookAt(playerAnchor.transform);
+	    Vector3 currentRotationEuler = transform.eulerAngles;
+	    float xStraightSnapAngle = Mathf.Abs(currentRotationEuler.y - 90) % 360;
+	    float xReverseSnapAngle = Mathf.Abs(currentRotationEuler.y + 90) % 360;
+	    float zStraightSnapAngle = Mathf.Abs(currentRotationEuler.y) % 360;
+	    float zReverseSnapAngle = Mathf.Abs(currentRotationEuler.y + 180) % 360;
+	    float minAngle = Mathf.Min(xStraightSnapAngle, xReverseSnapAngle, zStraightSnapAngle, zReverseSnapAngle);
+
+	    if (minAngle == xStraightSnapAngle)
+	    {
+		transform.rotation = Quaternion.Euler(0, -90, 0);
+		xAxisSnap = true;
+	    }
+	    else if (minAngle == xReverseSnapAngle)
+	    {
+		transform.rotation = Quaternion.Euler(0, 90, 0);
+		xAxisSnap = true;
+	    }
+	    else if (minAngle == zStraightSnapAngle)
+	    {
+		transform.rotation = Quaternion.Euler(0, -180, 0);
+		xAxisSnap = false;
+	    }
+	    else
+	    {
+		transform.rotation = Quaternion.Euler(0, 0, 0);
+		xAxisSnap = false;
+		}
+	    isGrabbed = false;
+	    rb.constraints = RigidbodyConstraints.FreezeAll;
+	}
 
     private void LateUpdate()
     {

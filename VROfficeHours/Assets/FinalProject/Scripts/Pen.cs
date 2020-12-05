@@ -103,7 +103,7 @@ public class Pen : MonoBehaviour
             {
 			    // Haptic feedback for writing, vibrates when the controller
 			    // touches the Whiteboard for the first time: per Prof. Haraldsson feedback
-			    OVRInput.SetControllerVibration(0.5f, 0.35f, OVRInput.Controller.RTouch);
+			    OVRInput.SetControllerVibration(1f, 0.5f, OVRInput.Controller.RTouch);
                 hapticFeedbackTimeLeft = hapticFeedbackLength;
                 _whiteboard.SetColor(currentPenColour);
                 lastDepthPosition = _whiteboard.xAxisSnap ? transform.position.x : transform.position.z;

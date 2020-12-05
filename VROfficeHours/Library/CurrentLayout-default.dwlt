@@ -380,20 +380,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/FinalProject/Materials
+    - Assets/Resources
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/FinalProject/Materials
+  - Assets/Resources
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1c460000
-    m_LastClickedID: 17948
-    m_ExpandedIDs: 00000000984500009a4500009c4500009e450000a0450000a2450000a445000000ca9a3b
+    m_SelectedIDs: 2e460000
+    m_LastClickedID: 17966
+    m_ExpandedIDs: 000000009e450000a0450000a2450000a4450000a6450000a8450000aa45000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -421,7 +421,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000984500009a4500009c4500009e450000a0450000a2450000a4450000
+    m_ExpandedIDs: 000000009e450000a0450000a2450000a4450000a6450000a8450000aa450000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -544,9 +544,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 02b50000
-      m_LastClickedID: 46338
-      m_ExpandedIDs: 2ab7ffffeeb9ffff0abaffff56baffffd0baffff94bdffffb8bdffff34c0ffffd6c2ffff9cc5ffffc0c5ffff3ac8ffffb8caffff7ecdffffa2cdffff1ed0ffffcad5ffff90d8ffffb4d8ffff30dbffffcce2ffff90e5ffffb6e5ffff32e8ffff26fbffff28fbffff40fbffff4afbffff5cfbffff6e3c0000d43c0000e43c0000e83c00002a3d0000983d0000406000001c61000058620000746200006063000002730000de730000f07300001a7500003675000026760000c88400000486000020860000f4920000d09300000c9500002895000018960000d6b20000b2b30000eeb400000ab50000fab50000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 04e2ffffcae4ffffeee4ffff68e7ffffa4e8ffff6aebffff8eebffff08eeffff5cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
