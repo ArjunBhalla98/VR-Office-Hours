@@ -62,7 +62,11 @@ public class Pen : MonoBehaviour
     private int counter = 0;
     private Color32 currentPenColour;
     private Material currentPenMaterial;
-    private MeshRenderer penTipRenderer; 
+    private MeshRenderer penTipRenderer;
+
+    private Color32 _boardColor = new Color32(255, 255, 255, 255);
+    private Color32 _prevPenColor;
+    private Material _prevPenMaterial;
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +80,9 @@ public class Pen : MonoBehaviour
         penMaterials = new Material[nColours] { PenGreen, PenBlue, PenRed, PenYellow };
         penTipRenderer = m_PenTip.GetComponent<MeshRenderer>();
         currentPenColour = greenPenColour;
+        _prevPenColor = currentPenColour;
         currentPenMaterial = PenGreen;
+        _prevPenMaterial = currentPenMaterial;
     }
 
     // Update is called once per frame
@@ -86,6 +92,18 @@ public class Pen : MonoBehaviour
         if(OVRInput.GetUp(OVRInput.RawButton.Y))
         {
             Switch();
+        }
+
+        if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
+        {
+            _prevPenColor = currentPenColour;
+            _prevPenMaterial = currentPenMaterial;
+            currentPenColour = _boardColor;
+            currentPenMaterial = _prevPenMaterial;
+        }
+        else
+        {
+            currentPenColour = _prevPenColor;
         }
 
         if (Physics.Raycast(transform.position, transform.forward, out _touch, raycastLength))
@@ -150,6 +168,7 @@ public class Pen : MonoBehaviour
         if (m_GrabState.isGrabbed)
         { 
 			currentPenColour = penColours[++counter % nColours];
+            _prevPenColor = currentPenColour;
 			currentPenMaterial = penMaterials[counter % nColours];
 			penTipRenderer.material = currentPenMaterial;
 	    }
