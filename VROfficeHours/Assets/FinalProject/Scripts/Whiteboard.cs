@@ -48,6 +48,8 @@ public class Whiteboard : MonoBehaviour
     private Color32[] _color;
     public Color32[] _colorWhite; // erase colour
 
+    public Color32 _textureColor = new Color32(255, 255, 255, 255);
+
     int counterSize = 0;
     bool isInstantiated = false;
 
@@ -80,6 +82,14 @@ public class Whiteboard : MonoBehaviour
         // _colorWhite = Enumerable.Repeat<Color32>(new Color32(255, 255, 255, 255), _painterTipsWidth * _painterTipsHeight).ToArray<Color32>();
         //_texture.SetPixels32(0, 0, _textureWidth, _textureHeight, _colorWhite);
         //_texture.SetPixels32(originTexture.GetPixels32());
+        for (int y = 0; y < _textureHeight; y++)
+        {
+            for (int x = 0; x < _textureWidth; x++)
+            {
+                _texture.SetPixel(x, y, _textureColor);
+            }
+        }
+
         _texture.Apply();
 
         //Assign to whiteboard

@@ -907,7 +907,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 662e7c5eb0f821c7139748fcb3ebe24e
+      Hash: 5e6eec0ab9fdb8fee2bd108847111cd1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Whiteboard
@@ -2174,4 +2174,5 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/FinalProject/Scenes/OfficeHoursRoom.unity
-  playerPath: /Users/arjunbhalla/Desktop/School/Grad/Fall 2020/CS5650/Final_Official/project-2020-g-06/VROfficeHours/test.apk
+  playerPath: /Users/xinchen/Documents/2. Learning/4. Cornell/1. Courses/Fall 2020/CS
+    5650 VR/assignments/project-2020-g-06/VROfficeHours/build.apk
