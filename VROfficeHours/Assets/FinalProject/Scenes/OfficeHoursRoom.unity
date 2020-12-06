@@ -2280,7 +2280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5c8315709854f9e927e5f6894c0571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NameTag: {fileID: 0}
+  m_PlayerName: Arjun
   QueueBoard: {fileID: 1447920414}
 --- !u!120 &799940639
 LineRenderer:
@@ -2683,7 +2683,7 @@ MonoBehaviour:
     type: 3}
   m_PlayerBase: {fileID: 743856386}
   m_NameTagField: {fileID: 0}
-  PlayerName: Default
+  PlayerName: Arjun
   m_WhiteboardSpawnOffset: 2
   m_penSpawnOffset: 0
 --- !u!1 &885342477
@@ -4304,7 +4304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5c8315709854f9e927e5f6894c0571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NameTag: {fileID: 0}
+  m_PlayerName: 
   QueueBoard: {fileID: 0}
 --- !u!1 &1628354531
 GameObject:

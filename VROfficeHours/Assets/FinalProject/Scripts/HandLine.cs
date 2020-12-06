@@ -7,12 +7,11 @@ using Normal.Realtime;
 public class HandLine : MonoBehaviour
 {
     [SerializeField]
-    Text m_NameTag;
+    string m_PlayerName;
 
     [SerializeField]
     QueueBoard QueueBoard; 
 
-    string name;
     bool isQueuePressed = false;
     const float maxResetTime = 1f;
     float currentResetTime = maxResetTime;
@@ -23,7 +22,6 @@ public class HandLine : MonoBehaviour
     void Start()
     {
         lr = GetComponent<LineRenderer>();
-        name = m_NameTag.text;
     }
 
     // Update is called once per frame
@@ -52,7 +50,7 @@ public class HandLine : MonoBehaviour
 
                 if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && !isQueuePressed)
                 {
-                    QueueBoard.AddStudent(name);
+                    QueueBoard.AddStudent(m_PlayerName);
                     isQueuePressed = true;
                     
                 }

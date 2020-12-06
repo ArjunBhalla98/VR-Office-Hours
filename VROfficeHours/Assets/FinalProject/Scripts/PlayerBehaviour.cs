@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Normal.Realtime;
+using System.Linq;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -45,8 +46,22 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (!playerNameUpdated)
         {
-            m_NameTagField = GameObject.Find("Nametag").GetComponent<Text>();
-			m_NameTagField.text = PlayerName;
+            //         m_NameTagField = GameObject.Find("Nametag").GetComponent<Text>();
+            //m_NameTagField.text = PlayerName;
+            GameObject[] allNameTags = GameObject.FindGameObjectsWithTag("NamePlate");
+            GameObject closestNameTag = allNameTags[0];
+            float minDistance = 9999999999;
+            foreach (GameObject obj in allNameTags)
+            {
+                float dist = Vector3.Distance(m_PlayerBase.position, obj.transform.position);
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    closestNameTag = obj;
+		        } 
+	        }
+
+            closestNameTag.GetComponent<Text>().text = PlayerName;
             playerNameUpdated = true;
 	    }
 
