@@ -31,6 +31,9 @@ public class Pen : MonoBehaviour
     [SerializeField]
     Material PenRed;
 
+    [SerializeField]
+    Material PenEraser;
+
     GameObject penSnapOrientation;
 
     const float hapticFeedbackLength = 0.15f;
@@ -57,12 +60,17 @@ public class Pen : MonoBehaviour
     Color32 yellowPenColour = new Color32(255, 255, 0, 255);
     Color32[] penColours;
     Material[] penMaterials;
+    bool eraseMode = false;
 
     private const int nColours = 4;
     private int counter = 0;
     private Color32 currentPenColour;
     private Material currentPenMaterial;
     private MeshRenderer penTipRenderer;
+
+    private const float eraseCooldownTime = 0.26f;
+    private float eraseTimer = eraseCooldownTime;
+    private bool eraseTriggered = false;
 
     private Color32 _boardColor = new Color32(255, 255, 255, 255);
     private Color32 _prevPenColor;
@@ -93,17 +101,41 @@ public class Pen : MonoBehaviour
         {
             Switch();
         }
+        
+        // Makes it stop rapid switching between eraser and pen
+	    if (eraseTriggered)
+	    {
+			eraseTimer -= Time.deltaTime;
 
-        if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
+			if (eraseTimer < 0)
+			{
+			    eraseTimer = eraseCooldownTime;
+			    eraseTriggered = false;
+			}
+		}
+
+        if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) && !eraseTriggered && m_GrabState.isGrabbed)
         {
-            _prevPenColor = currentPenColour;
-            _prevPenMaterial = currentPenMaterial;
-            currentPenColour = _boardColor;
-            currentPenMaterial = _prevPenMaterial;
-        }
-        else
-        {
-            currentPenColour = _prevPenColor;
+            eraseTriggered = true;
+
+            if (eraseMode)
+            {
+                currentPenColour = _prevPenColor;
+                currentPenMaterial =_prevPenMaterial;
+                penTipRenderer.material = currentPenMaterial;
+                eraseMode = false;
+            }
+            else
+            {
+
+                _prevPenColor = new Color32(currentPenColour.r, currentPenColour.g, currentPenColour.b, currentPenColour.a);
+                _prevPenMaterial = currentPenMaterial;
+			    currentPenColour = _boardColor;
+			    currentPenMaterial = PenEraser;
+			    penTipRenderer.material = currentPenMaterial;
+                eraseMode = true;
+		    
+	        }
         }
 
         if (Physics.Raycast(transform.position, transform.forward, out _touch, raycastLength))
@@ -123,11 +155,12 @@ public class Pen : MonoBehaviour
 			    // touches the Whiteboard for the first time: per Prof. Haraldsson feedback
 			    OVRInput.SetControllerVibration(1f, 0.5f, OVRInput.Controller.RTouch);
                 hapticFeedbackTimeLeft = hapticFeedbackLength;
-                _whiteboard.SetColor(currentPenColour);
                 lastDepthPosition = _whiteboard.xAxisSnap ? transform.position.x : transform.position.z;
                 _whiteboard.previousTexture = (Texture2D) _touch.collider.gameObject.GetComponent<MeshRenderer>().material.mainTexture;
                 _whiteboard.previousWrittenPixels = new List<List<int>>();
             }
+
+			_whiteboard.SetColor(currentPenColour);
 
             if (hapticFeedbackTimeLeft < 0)
             {

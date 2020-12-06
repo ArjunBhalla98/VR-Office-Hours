@@ -4927,6 +4927,10 @@ PrefabInstance:
       propertyPath: PenYellow
       value: 
       objectReference: {fileID: 2100000, guid: 6e20622b529334bacada58a65294e7f3, type: 2}
+    - target: {fileID: 339388381, guid: 9735d2e8ffcba49519f40a126bf67061, type: 3}
+      propertyPath: PenEraser
+      value: 
+      objectReference: {fileID: 2100000, guid: b91adfc50ab8d47d2b3c2db92b9c0913, type: 2}
     - target: {fileID: 603452450672630632, guid: 9735d2e8ffcba49519f40a126bf67061,
         type: 3}
       propertyPath: m_snapOffset

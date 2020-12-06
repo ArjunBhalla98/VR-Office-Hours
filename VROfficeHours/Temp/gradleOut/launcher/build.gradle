@@ -7,7 +7,7 @@ dependencies {
     }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     buildToolsVersion '28.0.3'
 
     compileOptions {
@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 29
         applicationId 'edu.cornell.cs5650.fa2020.g06.p2'
         ndk {
             abiFilters 'armeabi-v7a'

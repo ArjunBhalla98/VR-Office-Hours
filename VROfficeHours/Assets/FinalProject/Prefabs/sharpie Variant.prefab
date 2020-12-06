@@ -231,10 +231,8 @@ MonoBehaviour:
   PenBlue: {fileID: 2100000, guid: e04e9200cb6674da492882b5a8c25929, type: 2}
   PenYellow: {fileID: 2100000, guid: 6e20622b529334bacada58a65294e7f3, type: 2}
   PenRed: {fileID: 2100000, guid: 59e8ae783fb1446b59d0aa3b8e789ed2, type: 2}
+  PenEraser: {fileID: 2100000, guid: b91adfc50ab8d47d2b3c2db92b9c0913, type: 2}
   _whiteboard: {fileID: 0}
-  _penColor:
-    serializedVersion: 2
-    rgba: 0
 --- !u!1001 &8668009089045760215
 PrefabInstance:
   m_ObjectHideFlags: 0
