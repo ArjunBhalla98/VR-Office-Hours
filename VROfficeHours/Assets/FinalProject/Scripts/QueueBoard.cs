@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using Normal.Realtime;
 
 public class QueueBoard : MonoBehaviour
 {
@@ -80,6 +81,7 @@ public class QueueBoard : MonoBehaviour
         int i = 0;
         foreach (string itemText in peopleQueue)
         {
+            m_TextSlots[i].GetComponent<RealtimeTransform>().RequestOwnership();
             m_TextSlots[i].text = itemText;
             i++;
         }
