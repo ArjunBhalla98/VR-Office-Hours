@@ -61,6 +61,7 @@ public class PlayerBehaviour : MonoBehaviour
 		        } 
 	        }
 
+            closestNameTag.GetComponent<RealtimeTransform>().RequestOwnership();
             closestNameTag.GetComponent<Text>().text = PlayerName;
             playerNameUpdated = true;
 	    }
