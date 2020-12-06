@@ -46,12 +46,28 @@ public class Whiteboard : MonoBehaviour
 
     //The color of the brush
     private Color32[] _color;
-    public Color32[] _colorWhite; // erase colour
+    private Color32[] boardWhiteArray;
 
     public Color32 _textureColor = new Color32(255, 255, 255, 255);
 
     int counterSize = 0;
     bool isInstantiated = false;
+
+    private void Awake()
+    {
+        _localScale = transform.localScale;
+        _textureWidth = (int)(_localScale.x * 1000); 
+        _textureHeight = (int)(_localScale.y * 1000);
+        boardWhiteArray = new Color32[_textureWidth * _textureHeight];
+        for (int i = 0; i < boardWhiteArray.Length; i++)
+        {
+            boardWhiteArray[i] = _textureColor;
+	    }
+
+        _texture = new Texture2D(_textureWidth, _textureHeight, TextureFormat.RGBA32, false, true);
+        _texture.SetPixels32(0, 0, _textureWidth, _textureHeight, boardWhiteArray);
+        _texture.Apply();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -72,36 +88,31 @@ public class Whiteboard : MonoBehaviour
         //Get the size of the original texture of the board
         //Texture2D originTexture = (Texture2D)this.GetComponent<MeshRenderer>().material.mainTexture;
 
-        //TODO: could change the size of the board
-        _localScale = transform.localScale;
-        _textureWidth = (int)(_localScale.x * 1000); 
-        _textureHeight = (int)(_localScale.y * 1000); 
 
         //Set current texture
-        _texture = new Texture2D(_textureWidth, _textureHeight, TextureFormat.RGBA32, false, true);
         // _colorWhite = Enumerable.Repeat<Color32>(new Color32(255, 255, 255, 255), _painterTipsWidth * _painterTipsHeight).ToArray<Color32>();
         //_texture.SetPixels32(0, 0, _textureWidth, _textureHeight, _colorWhite);
         //_texture.SetPixels32(originTexture.GetPixels32());
-        for (int y = 0; y < _textureHeight; y++)
-        {
-            for (int x = 0; x < _textureWidth; x++)
-            {
-                _texture.SetPixel(x, y, _textureColor);
-            }
-        }
+        // This is very laggy
+        //for (int y = 0; y < _textureHeight; y++)
+        //{
+        //    for (int x = 0; x < _textureWidth; x++)
+        //    {
+        //        _texture.SetPixel(x, y, _textureColor);
+        //    }
+        //}
 
-        _texture.Apply();
-
-        //Assign to whiteboard
+        ////Assign to whiteboard
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material.mainTexture = _texture;
-        previousTexture = _texture;
-                
+
         //Initialize brush color
         _color = Enumerable.Repeat<Color32>(new Color32(255, 0, 0, 255), _painterTipsWidth * _painterTipsHeight).ToArray<Color32>();
 
         // Reposition whiteboard, fix glitch
         SnapWhiteboard();
+        //isGrabbed = false;
+        //rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     // Update is called once per frame
@@ -122,8 +133,6 @@ public class Whiteboard : MonoBehaviour
         {
             _localScale = transform.localScale;
         }
-
-
     }
 
     void SnapWhiteboard()
@@ -209,7 +218,6 @@ public class Whiteboard : MonoBehaviour
                 {
                     int x = (int)Mathf.Lerp(_lastX, texPosX, lerp * i);
                     int y = (int)Mathf.Lerp(_lastY, texPosY, lerp * i);
-                    previousWrittenPixels.Add(new List<int> { x, y });
                     _texture.SetPixels32(x, y, _painterTipsWidth, _painterTipsHeight, _color);
                 }
             }
@@ -223,11 +231,6 @@ public class Whiteboard : MonoBehaviour
         }
     }
 
-    public int SwitchSize()
-    {
-        counterSize++;
-        return counterSize;
-    }
     ///////// Texture mapping for writing
 
     /// <summary>
@@ -243,6 +246,12 @@ public class Whiteboard : MonoBehaviour
         {
             _isTouching = value;
         }
+    }
+
+    public void SetPenSize(int width, int height)
+    {
+        _painterTipsWidth = width;
+        _painterTipsHeight = height;
     }
 
 

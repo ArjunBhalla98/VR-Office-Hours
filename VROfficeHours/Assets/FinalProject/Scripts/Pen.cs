@@ -68,10 +68,11 @@ public class Pen : MonoBehaviour
     private Material currentPenMaterial;
     private MeshRenderer penTipRenderer;
 
-    private const float eraseCooldownTime = 0.26f;
+    private const float eraseCooldownTime = 0.3f;
     private float eraseTimer = eraseCooldownTime;
     private bool eraseTriggered = false;
 
+    //private Color32 _boardColor = new Color32(255, 255, 255, 255);
     private Color32 _boardColor = new Color32(255, 255, 255, 255);
     private Color32 _prevPenColor;
     private Material _prevPenMaterial;
@@ -79,7 +80,7 @@ public class Pen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
+        //_whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
         m_GrabState = GetComponent<OVRGrabbable>();
         _isTouching = false;
         penSnapOrientation = GameObject.Find("PenSnap");
@@ -127,14 +128,12 @@ public class Pen : MonoBehaviour
             }
             else
             {
-
                 _prevPenColor = new Color32(currentPenColour.r, currentPenColour.g, currentPenColour.b, currentPenColour.a);
                 _prevPenMaterial = currentPenMaterial;
 			    currentPenColour = _boardColor;
 			    currentPenMaterial = PenEraser;
 			    penTipRenderer.material = currentPenMaterial;
                 eraseMode = true;
-		    
 	        }
         }
 
@@ -148,21 +147,28 @@ public class Pen : MonoBehaviour
             RealtimeTransform whiteboardTransform = _whiteboard.GetComponent<RealtimeTransform>();
             whiteboardTransform.RequestOwnership();
 
+		    OVRInput.SetControllerVibration(1f, 0.5f, OVRInput.Controller.RTouch);
 
             if (!_isTouching)
             {
 			    // Haptic feedback for writing, vibrates when the controller
 			    // touches the Whiteboard for the first time: per Prof. Haraldsson feedback
-			    OVRInput.SetControllerVibration(1f, 0.5f, OVRInput.Controller.RTouch);
                 hapticFeedbackTimeLeft = hapticFeedbackLength;
                 lastDepthPosition = _whiteboard.xAxisSnap ? transform.position.x : transform.position.z;
-                _whiteboard.previousTexture = (Texture2D) _touch.collider.gameObject.GetComponent<MeshRenderer>().material.mainTexture;
-                _whiteboard.previousWrittenPixels = new List<List<int>>();
+			    _isTouching = true;
             }
 
-			_whiteboard.SetColor(currentPenColour);
+            //if (eraseMode)
+            //{
+            //    _whiteboard.SetPenSize(10, 10);
+            //}
+            //else
+            //{
+            //    _whiteboard.SetPenSize(4, 4);
+            //}
 
-            if (hapticFeedbackTimeLeft < 0)
+
+            if (hapticFeedbackTimeLeft < 0 || !m_GrabState.isGrabbed)
             {
                 // Haptic feedback for writing, stop vibration after initial touch 
                 OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
@@ -181,18 +187,25 @@ public class Pen : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y, lastDepthPosition);
 	        }
 
-            _isTouching = true;
 
 			_whiteboard.SetTouchPositon(_touch.textureCoord.x, _touch.textureCoord.y);
+            _whiteboard.SetColor(currentPenColour);
 
             //Current pen color
             _whiteboard.IsDrawing = true;
         }
         else
         {
-			OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
 		    _isTouching = false;
-            _whiteboard.IsDrawing = false;
+            if (m_GrabState.isGrabbed )
+            {
+                if (_whiteboard)
+                { 
+					_whiteboard.IsDrawing = false;
+		        }
+				OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
+            }
+            hapticFeedbackTimeLeft = hapticFeedbackLength;
         }
     }
 

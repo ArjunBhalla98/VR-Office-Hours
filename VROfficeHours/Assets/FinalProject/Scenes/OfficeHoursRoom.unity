@@ -2683,7 +2683,7 @@ MonoBehaviour:
     type: 3}
   m_PlayerBase: {fileID: 743856386}
   m_NameTagField: {fileID: 0}
-  PlayerName: Arjun
+  PlayerName: Student
   m_WhiteboardSpawnOffset: 2
   m_penSpawnOffset: 0
 --- !u!1 &885342477

@@ -39,33 +39,31 @@ public class PlayerBehaviour : MonoBehaviour
         respawnTimer = k_respawnTime;
         penRespawnTimer = k_respawnTime;
         _realtime = GetComponent<Realtime>();
+        _realtime.didConnectToRoom += DidConnectToRoom;
+    }
+
+    private void DidConnectToRoom(Realtime realtime)
+    { 
+	    GameObject[] allNameTags = GameObject.FindGameObjectsWithTag("NamePlate");
+	    GameObject closestNameTag = allNameTags[0];
+	    float minDistance = 9999999999;
+	    foreach (GameObject obj in allNameTags)
+	    {
+		float dist = Vector3.Distance(m_PlayerBase.position, obj.transform.position);
+		if (dist < minDistance)
+		{
+		    minDistance = dist;
+		    closestNameTag = obj;
+			} 
+		}
+
+	    closestNameTag.GetComponent<RealtimeTransform>().RequestOwnership();
+	    closestNameTag.GetComponent<Text>().text = PlayerName;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!playerNameUpdated)
-        {
-            //         m_NameTagField = GameObject.Find("Nametag").GetComponent<Text>();
-            //m_NameTagField.text = PlayerName;
-            GameObject[] allNameTags = GameObject.FindGameObjectsWithTag("NamePlate");
-            GameObject closestNameTag = allNameTags[0];
-            float minDistance = 9999999999;
-            foreach (GameObject obj in allNameTags)
-            {
-                float dist = Vector3.Distance(m_PlayerBase.position, obj.transform.position);
-                if (dist < minDistance)
-                {
-                    minDistance = dist;
-                    closestNameTag = obj;
-		        } 
-	        }
-
-            closestNameTag.GetComponent<RealtimeTransform>().RequestOwnership();
-            closestNameTag.GetComponent<Text>().text = PlayerName;
-            playerNameUpdated = true;
-	    }
-
         if (OVRInput.Get(OVRInput.Button.One) && !isSpawned)
         {
             GameObject instantiatedWhiteboard = Realtime.Instantiate(m_PrefabName,
