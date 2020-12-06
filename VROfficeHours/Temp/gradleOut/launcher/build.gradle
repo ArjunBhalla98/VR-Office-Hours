@@ -18,12 +18,12 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 29
-        applicationId 'edu.cornell.cs5650.fa2020.g06.p2'
+        applicationId 'edu.cornell.cs5650.fa2020.g06.p3'
         ndk {
             abiFilters 'armeabi-v7a'
         }
         versionCode 1
-        versionName '2.0'
+        versionName '3.0'
     }
 
     aaptOptions {

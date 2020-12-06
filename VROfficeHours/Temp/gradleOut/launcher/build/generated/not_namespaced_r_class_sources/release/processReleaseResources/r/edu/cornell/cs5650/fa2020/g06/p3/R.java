@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package edu.cornell.cs5650.fa2020.g06.p2;
+package edu.cornell.cs5650.fa2020.g06.p3;
 
 public final class R {
   public static final class drawable {
