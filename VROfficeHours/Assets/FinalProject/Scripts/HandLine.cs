@@ -24,9 +24,29 @@ public class HandLine : MonoBehaviour
         lr = GetComponent<LineRenderer>();
     }
 
+    void MakeNameTag()
+    {
+        GameObject[] allNameTags = GameObject.FindGameObjectsWithTag("NamePlate");
+        GameObject closestNameTag = allNameTags[0];
+        float minDistance = 9999999999;
+	    foreach (GameObject obj in allNameTags)
+	    {
+			float dist = Vector3.Distance(transform.position, obj.transform.position);
+			if (dist < minDistance)
+			{
+				    minDistance = dist;
+				    closestNameTag = obj;
+			}
+        }
+
+        closestNameTag.GetComponent<RealtimeTransform>().RequestOwnership();
+        closestNameTag.GetComponent<Text>().text = m_PlayerName;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        MakeNameTag();
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, transform.position + lineDistance * transform.forward);
 

@@ -12,7 +12,7 @@
     </activity>
     <meta-data android:name="unity.splash-mode" android:value="0" />
     <meta-data android:name="unity.splash-enable" android:value="False" />
-    <meta-data android:name="unity.build-id" android:value="39bb0d64-b889-4918-951d-36aa693cc896" />
+    <meta-data android:name="unity.build-id" android:value="a3358e59-357f-4380-9ae6-4d197280714f" />
     <meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only" />
     <meta-data android:name="com.oculus.supportedDevices" android:value="quest|delmar" />
   </application>

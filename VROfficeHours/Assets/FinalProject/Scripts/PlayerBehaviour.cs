@@ -13,9 +13,9 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     Transform m_PlayerBase;
 
-    [SerializeField]
     Text m_NameTagField;
 
+    RealtimeAvatarManager avatarManager;
     public string PlayerName = "Default";
     bool playerNameUpdated = false;
 
@@ -32,14 +32,26 @@ public class PlayerBehaviour : MonoBehaviour
     const string m_PenPrefabName = "sharpiePrefab";
 
     Realtime _realtime;
+    GameObject localAvatarPrefab;
+	Transform head ;
 
     // Start is called before the first frame update
     void Start()
     {
+        //localAvatarPrefab = avatarManager.localAvatarPrefab;
+        //m_NameTagField = localAvatarPrefab.;
+        //m_NameTagField.GetComponent<RealtimeTransform>().RequestOwnership();
+        //m_NameTagField.text = PlayerName;
+        //avatarManager.localAvatarPrefab = localAvatarPrefab;
         respawnTimer = k_respawnTime;
         penRespawnTimer = k_respawnTime;
         _realtime = GetComponent<Realtime>();
+        avatarManager = GetComponent<RealtimeAvatarManager>();
+        //GameObject nameTag = Realtime.Instantiate("Nametag", true, true, true, _realtime);
+        //nameTag.transform.position = head.position + head.transform.forward;
+        //nameTag.GetComponentInChildren<Text>().text = PlayerName;
         _realtime.didConnectToRoom += DidConnectToRoom;
+        head = avatarManager.localAvatar.head;
     }
 
     private void DidConnectToRoom(Realtime realtime)
@@ -49,21 +61,26 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void MakeNameTag()
     {
-	    GameObject[] allNameTags = GameObject.FindGameObjectsWithTag("NamePlate");
-	    GameObject closestNameTag = allNameTags[0];
-	    float minDistance = 9999999999;
-	    foreach (GameObject obj in allNameTags)
-	    {
-			float dist = Vector3.Distance(m_PlayerBase.position, obj.transform.position);
-			if (dist < minDistance)
-			{
-		    minDistance = dist;
-		    closestNameTag = obj;
-			} 
-		}
+   //     GameObject[] allNameTags = GameObject.FindGameObjectsWithTag("NamePlate");
+   //     GameObject closestNameTag = allNameTags[0];
+   //     Dictionary<int, RealtimeAvatar> avatars = avatarManager.avatars;
+   //     float minDistance = 9999999999;
+   //     foreach (KeyValuePair<int, RealtimeAvatar> entry in avatars)
+   //     {
+   //         RealtimeAvatar avatar = entry.Value;
+			//foreach (GameObject obj in allNameTags)
+			//{
+			//    float dist = Vector3.Distance(transform.position, obj.transform.position);
+			//    if (dist < minDistance)
+			//    {
+			//	minDistance = dist;
+			//	closestNameTag = obj;
+			//    }
+   //         }
+   //     }
 
-	    closestNameTag.GetComponent<RealtimeTransform>().RequestOwnership();
-	    closestNameTag.GetComponent<Text>().text = PlayerName;
+   //     closestNameTag.GetComponent<RealtimeTransform>().RequestOwnership();
+   //     closestNameTag.GetComponent<Text>().text = PlayerName;
     }
 
     // Update is called once per frame

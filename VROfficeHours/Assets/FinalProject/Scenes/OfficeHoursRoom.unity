@@ -2682,8 +2682,7 @@ MonoBehaviour:
   m_WhiteboardPrefab: {fileID: 3466316847594568338, guid: da2b57a7e192a48578076c1cd84c40dc,
     type: 3}
   m_PlayerBase: {fileID: 743856386}
-  m_NameTagField: {fileID: 0}
-  PlayerName: Arjun
+  PlayerName: Student
   m_WhiteboardSpawnOffset: 2
   m_penSpawnOffset: 0
 --- !u!1 &885342477
