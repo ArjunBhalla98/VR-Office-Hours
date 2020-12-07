@@ -34,8 +34,8 @@ public class HandLine : MonoBehaviour
 			float dist = Vector3.Distance(transform.position, obj.transform.position);
 			if (dist < minDistance)
 			{
-				    minDistance = dist;
-				    closestNameTag = obj;
+			    minDistance = dist;
+			    closestNameTag = obj;
 			}
         }
 

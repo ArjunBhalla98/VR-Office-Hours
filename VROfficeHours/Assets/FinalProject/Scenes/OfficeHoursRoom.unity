@@ -2280,7 +2280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5c8315709854f9e927e5f6894c0571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerName: Arjun
+  m_PlayerName: Student
   QueueBoard: {fileID: 1447920414}
 --- !u!120 &799940639
 LineRenderer:
@@ -2682,7 +2682,6 @@ MonoBehaviour:
   m_WhiteboardPrefab: {fileID: 3466316847594568338, guid: da2b57a7e192a48578076c1cd84c40dc,
     type: 3}
   m_PlayerBase: {fileID: 743856386}
-  PlayerName: Student
   m_WhiteboardSpawnOffset: 2
   m_penSpawnOffset: 0
 --- !u!1 &885342477

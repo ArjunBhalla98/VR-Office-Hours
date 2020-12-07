@@ -147,63 +147,67 @@ public class Pen : MonoBehaviour
 
 
             _whiteboard = _touch.collider.gameObject.GetComponent<Whiteboard>();
-            RealtimeTransform whiteboardTransform = _whiteboard.GetComponent<RealtimeTransform>();
-            whiteboardTransform.RequestOwnership();
+            if (m_GrabState.isGrabbed)
+            { 
+			    RealtimeTransform whiteboardTransform = _whiteboard.GetComponent<RealtimeTransform>();
+			    whiteboardTransform.RequestOwnership();
 
-		    OVRInput.SetControllerVibration(1f, 0.5f, OVRInput.Controller.RTouch);
+			    OVRInput.SetControllerVibration(1f, 0.5f, OVRInput.Controller.RTouch);
 
-            if (!_isTouching)
-            {
-			    // Haptic feedback for writing, vibrates when the controller
-			    // touches the Whiteboard for the first time: per Prof. Haraldsson feedback
-                hapticFeedbackTimeLeft = hapticFeedbackLength;
-                lastDepthPosition = _whiteboard.xAxisSnap ? transform.position.x : transform.position.z;
-			    _isTouching = true;
-            }
+			    if (!_isTouching)
+			    {
+					    // Haptic feedback for writing, vibrates when the controller
+					    // touches the Whiteboard for the first time: per Prof. Haraldsson feedback
+						hapticFeedbackTimeLeft = hapticFeedbackLength;
+						lastDepthPosition = _whiteboard.xAxisSnap ? transform.position.x : transform.position.z;
+					    _isTouching = true;
+			    }
 
-            //if (eraseMode)
-            //{
-            //    _whiteboard.SetPenSize(10, 10);
-            //}
-            //else
-            //{
-            //    _whiteboard.SetPenSize(4, 4);
-            //}
+                //if (eraseMode)
+                //{
+                //    _whiteboard.SetPenSize(10, 10);
+                //}
+                //else
+                //{
+                //    _whiteboard.SetPenSize(4, 4);
+                //}
 
 
-            if (hapticFeedbackTimeLeft < 0 || !m_GrabState.isGrabbed)
-            {
-                // Haptic feedback for writing, stop vibration after initial touch 
-                OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
-            }
-            else
-            {
-                hapticFeedbackTimeLeft -= Time.deltaTime;
+                if (hapticFeedbackTimeLeft < 0 || !m_GrabState.isGrabbed)
+			    {
+				// Haptic feedback for writing, stop vibration after initial touch 
+				OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
+			    }
+			    else
+			    {
+				hapticFeedbackTimeLeft -= Time.deltaTime;
+				}
+
+			    if (_whiteboard.xAxisSnap)
+			    {
+					transform.position = new Vector3(lastDepthPosition, transform.position.y, transform.position.z);
+			    }
+			    else
+			    {
+					transform.position = new Vector3(transform.position.x, transform.position.y, lastDepthPosition);
+				}
+
+
+				_whiteboard.SetTouchPositon(_touch.textureCoord.x, _touch.textureCoord.y);
+			    _whiteboard.SetColor(currentPenColour);
+
+			    //Current pen color
+			    _whiteboard.IsDrawing = true;
 	        }
-
-            if (_whiteboard.xAxisSnap)
-            {
-                transform.position = new Vector3(lastDepthPosition, transform.position.y, transform.position.z);
-            }
-            else
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y, lastDepthPosition);
-	        }
-
-
-			_whiteboard.SetTouchPositon(_touch.textureCoord.x, _touch.textureCoord.y);
-            _whiteboard.SetColor(currentPenColour);
-
-            //Current pen color
-            _whiteboard.IsDrawing = true;
         }
         else
         {
 		    _isTouching = false;
-            if (m_GrabState.isGrabbed )
+            if (m_GrabState.isGrabbed)
             {
                 if (_whiteboard)
-                { 
+                {
+                    _whiteboard.GetComponent<RealtimeTransform>().RequestOwnership();
 					_whiteboard.IsDrawing = false;
 		        }
 				OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);

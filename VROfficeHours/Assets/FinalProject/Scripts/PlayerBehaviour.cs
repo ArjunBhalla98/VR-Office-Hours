@@ -16,7 +16,6 @@ public class PlayerBehaviour : MonoBehaviour
     Text m_NameTagField;
 
     RealtimeAvatarManager avatarManager;
-    public string PlayerName = "Default";
     bool playerNameUpdated = false;
 
     public float m_WhiteboardSpawnOffset;
