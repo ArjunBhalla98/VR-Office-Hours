@@ -48,7 +48,8 @@ public class Pen : MonoBehaviour
     private RaycastHit _touch;
     RaycastHit _stillInRange;
     private bool _isTouching; // Is the pentip is in contact with the whiteboard
-    float raycastLength = 0.11f; 
+    float raycastLength = 0.11f;
+    RealtimeTransform penTransform;
 
     // For making sure the pen doesn't go through the board
     OVRGrabbable m_GrabState;
@@ -92,6 +93,7 @@ public class Pen : MonoBehaviour
         _prevPenColor = currentPenColour;
         currentPenMaterial = PenGreen;
         _prevPenMaterial = currentPenMaterial;
+        penTransform = GetComponent<RealtimeTransform>();
     }
 
     // Update is called once per frame
@@ -117,6 +119,7 @@ public class Pen : MonoBehaviour
 
         if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) && !eraseTriggered && m_GrabState.isGrabbed)
         {
+            penTransform.RequestOwnership();
             eraseTriggered = true;
 
             if (eraseMode)
@@ -212,7 +215,8 @@ public class Pen : MonoBehaviour
     void Switch()
     {
         if (m_GrabState.isGrabbed)
-        { 
+        {
+            penTransform.RequestOwnership();
 			currentPenColour = penColours[++counter % nColours];
             _prevPenColor = currentPenColour;
 			currentPenMaterial = penMaterials[counter % nColours];
