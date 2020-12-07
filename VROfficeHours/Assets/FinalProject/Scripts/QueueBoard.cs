@@ -16,16 +16,23 @@ public class QueueBoard : MonoBehaviour
     [SerializeField]
     Text[] m_TextSlots;
 
+    [SerializeField]
+    Canvas canvas;
+
     int nSlots = 5;
     MeshRenderer mr;
     public bool isHighlighted = false;
     string defaultText = "Empty Slot";
 
     private Queue<string> peopleQueue;
+    private RealtimeTransform localRealtimeTransform;
+    private RealtimeTransform canvasRealtimeTransform;
 
     // Start is called before the first frame update
     void Start()
     {
+        localRealtimeTransform = GetComponent<RealtimeTransform>();
+        canvasRealtimeTransform = canvas.GetComponent<RealtimeTransform>();
         mr = GetComponent<MeshRenderer>();
         defaultMaterial = mr.material;
         peopleQueue = new Queue<string>();
@@ -50,6 +57,8 @@ public class QueueBoard : MonoBehaviour
 
     public void AddStudent(string student)
     {
+        localRealtimeTransform.RequestOwnership();
+        canvasRealtimeTransform.RequestOwnership();
         bool hasSpace = false;
         foreach (string name in peopleQueue)
         {
@@ -71,6 +80,8 @@ public class QueueBoard : MonoBehaviour
 
     public void RemoveStudent()
     {
+        localRealtimeTransform.RequestOwnership();
+        canvasRealtimeTransform.RequestOwnership();
         peopleQueue.Dequeue();
         peopleQueue.Enqueue(defaultText);
         UpdateTextDisplay();
@@ -78,6 +89,8 @@ public class QueueBoard : MonoBehaviour
 
     void UpdateTextDisplay()
     { 
+        localRealtimeTransform.RequestOwnership();
+        canvasRealtimeTransform.RequestOwnership();
         int i = 0;
         foreach (string itemText in peopleQueue)
         {

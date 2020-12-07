@@ -4012,6 +4012,7 @@ MonoBehaviour:
   - {fileID: 366558608}
   - {fileID: 1510074718}
   - {fileID: 2038050644}
+  canvas: {fileID: 746483160}
   isHighlighted: 0
 --- !u!114 &1447920415
 MonoBehaviour:

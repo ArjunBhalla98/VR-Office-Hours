@@ -42,7 +42,9 @@ public class Whiteboard : MonoBehaviour
     private float _localScaleX, _localScaleY;
     private int _textureWidth;
     private int _textureHeight;
-    private bool isWhitboradReshaped = false;
+    private bool didResizePen = false;
+    private const float resizePenCooldown = 0.2f;
+    private float resizePenTimer = resizePenCooldown;
 
     //The color of the brush
     private Color32[] _color;
@@ -173,40 +175,56 @@ public class Whiteboard : MonoBehaviour
 
     private void LateUpdate()
     {
-        //if(OVRInput.Get(OVRInput.RawButton.LIndexTrigger))
-        //{
-        //    SwitchSize();
-        //}
+        if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) && !didResizePen)
+        {
+            didResizePen = true;
+            counterSize++;
+            counterSize = counterSize % 4;
+        }
 
-        //if(counterSize % 4 == 0) 
-        //{
-        //    _painterTipsWidth = 5;
-        //    _painterTipsHeight = 5;
-        //}
+        if (didResizePen)
+        {
+            resizePenTimer -= Time.deltaTime;
+            if (resizePenTimer < 0)
+            {
+                didResizePen = false;
+                resizePenTimer = resizePenCooldown;
+	        }
+	    }
 
-        //else if(counterSize % 4 == 1) 
-        //{
-        //    _painterTipsWidth = 10;
-        //    _painterTipsHeight = 10;
-        //}
+	    if (counterSize == 0)
+	    {
+		_painterTipsWidth = 5;
+		_painterTipsHeight = 5;
+	    }
 
-        //else if(counterSize % 4 == 2) 
-        //{
-        //    _painterTipsWidth = 20;
-        //    _painterTipsHeight = 20;
-        //}
+	    else if (counterSize == 1)
+	    {
+		_painterTipsWidth = 10;
+		_painterTipsHeight = 10;
+	    }
 
-        //else if(counterSize % 4 == 3) 
-        //{
-        //    _painterTipsWidth = 30;
-        //    _painterTipsHeight = 30;
-        //}
+	    else if (counterSize == 2)
+	    {
+		_painterTipsWidth = 20;
+		_painterTipsHeight = 20;
+	    }
+
+	    else if (counterSize == 3)
+	    {
+		_painterTipsWidth = 30;
+		_painterTipsHeight = 30;
+	    }
 
         //Calculate the starting point of the color block represented by the current brush
-        int texPosX = (int)(_paintPos.x * (float)_textureWidth - (float)(_painterTipsWidth / 2));
-        int texPosY = (int)(_paintPos.y * (float)_textureHeight - (float)(_painterTipsHeight / 2));
         if (_isTouching)
         {
+            if (_color.Length != _painterTipsHeight * _painterTipsWidth)
+            { 
+			    _color = Enumerable.Repeat(_color[0], _painterTipsWidth * _painterTipsHeight).ToArray<Color32>();
+	        }
+            int texPosX = (int)(_paintPos.x * (float)_textureWidth - (float)(_painterTipsWidth / 2));
+			int texPosY = (int)(_paintPos.y * (float)_textureHeight - (float)(_painterTipsHeight / 2));
             //Change the pixel value of the block where the brush is located
             _texture.SetPixels32(texPosX, texPosY, _painterTipsWidth, _painterTipsHeight, _color);
 

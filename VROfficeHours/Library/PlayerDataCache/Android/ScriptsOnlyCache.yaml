@@ -631,7 +631,7 @@ ScriptsOnlyBuild:
     className: OvrAvatarBase
   - hash:
       serializedVersion: 2
-      Hash: 7480efdb2d24d37bcd9c627324463850
+      Hash: 86408cdf8d28d400d95345fce474fc33
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: QueueBoard
